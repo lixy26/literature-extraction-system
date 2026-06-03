@@ -1,0 +1,1070 @@
+{
+  "metadata": {
+    "total_genes": 17,
+    "export_time": "2026-06-02T23:03:59.359078",
+    "database_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\output\\gene_info.sqlite3"
+  },
+  "genes": {
+    "ACYP2": {
+      "gene_name": "ACYP2",
+      "gene_function_category": "功能未明确",
+      "sources": [
+        {
+          "pdf_file": "MGG3-7-e00716.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\MGG3-7-e00716.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "5",
+        "prognosis_correlation": {
+          "OS": "低表达",
+          "DFS": "正相关"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "ACYP2基因低表达见于LIHC grade 3；rs1682111突变影响结肠-乙状结肠组织中ACYP2 mRNA表达（TT基因型表达显著低于AA型） ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "5",
+        "known_drugs": "未提及",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "5",
+        "mutation_frequency": "点突变 (rs1682111; rs843720; rs843645; rs11125529)"
+      },
+      "biological_functions": [
+        "凋亡 (来源: MGG3-7-e00716.pdf)",
+        "细胞增殖 (来源: MGG3-7-e00716.pdf)"
+      ],
+      "references": [
+        {
+          "title": 5,
+          "year": "Associations between polymorphisms of the ACYP2 gene and Liver cancer risk: A case‐control study and meta‐analysis",
+          "location": "2019",
+          "source_pdf": "Fig.3; Fig.4; Fig.5"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "5"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "HBV相关",
+          "酒精性"
+        ],
+        "evidence_level": [
+          "临床标本"
+        ]
+      }
+    },
+    "BOP1": {
+      "gene_name": "BOP1",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "ijms-27-04425-v2.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "1",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "高风险组中BOP1表达显著升高；与肿瘤分级（G3/G4）和T分期（T3/T4）呈正相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "1",
+        "known_drugs": "是",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "1",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "侵袭转移 (来源: ijms-27-04425-v2.pdf)",
+        "凋亡 (来源: ijms-27-04425-v2.pdf)",
+        "细胞增殖 (来源: ijms-27-04425-v2.pdf)"
+      ],
+      "references": [
+        {
+          "title": 1,
+          "year": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+          "location": "2026",
+          "source_pdf": "Fig.4D;Fig.8H;Fig.9E"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "1"
+        ],
+        "cancer_subtype": [
+          "mTOR信号通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关",
+          "NASH相关",
+          "酒精性"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "细胞系"
+        ]
+      }
+    },
+    "CDKN2A": {
+      "gene_name": "CDKN2A",
+      "gene_function_category": "抑癌基因",
+      "sources": [
+        {
+          "pdf_file": "s41586-025-08585-z.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "9",
+        "prognosis_correlation": {
+          "OS": "低表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "负相关",
+        "locations": "CDKN2A缺失与CTNNB1/MYC/TP53等多基因共突变驱动HuMo cluster 4，表现为高度增殖、低分化、EMT及免疫耗竭特征 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "9",
+        "known_drugs": "正在研究",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "9",
+        "mutation_frequency": "缺失 (未提及)"
+      },
+      "biological_functions": [
+        "凋亡 (来源: s41586-025-08585-z.pdf)",
+        "细胞增殖 (来源: s41586-025-08585-z.pdf)"
+      ],
+      "references": [
+        {
+          "title": 9,
+          "year": "Human-correlated genetic models identify precision therapy for liver cancer",
+          "location": "2025",
+          "source_pdf": "Fig. 1b; Fig. 3a; Fig. 4a"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "9"
+        ],
+        "cancer_subtype": [
+          "p53 pathway"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "evidence_level": [
+          "动物模型"
+        ]
+      }
+    },
+    "CTNNB1": {
+      "gene_name": "CTNNB1",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "lic-2025-0014-0004-543217.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\lic-2025-0014-0004-543217.pdf"
+        },
+        {
+          "pdf_file": "nature13589.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nature13589.pdf"
+        },
+        {
+          "pdf_file": "s41586-025-08585-z.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "9; 3; 7",
+        "prognosis_correlation": {
+          "OS": "高表达; 未提及",
+          "DFS": "负相关; 未提及"
+        },
+        "clinicopathological_correlation": "未提及; 未提及; 负相关",
+        "locations": "CTNNB1变异在CPSS患者肝肿瘤中高频出现（26/38，68%），且与恶性肿瘤（HCC、HB）显著相关；p.Asp32Gly、p.Ser33Cys、p.Ser33Pro等32/33位点变异在恶性肿瘤中占比60%，显著高于良性肿瘤（p=0.02）；CTNNB1变异还见于FNH样结节及背景肝微病灶，提示其驱动早期肿瘤发生和场效应 (); CTNNB1激活突变导致β-catenin核定位、谷氨酰胺合成酶表达升高，促进肝癌发生 (); 与WNT–β-catenin激活、免疫排斥表型、低免疫评分显著相关；在HuMo cluster 1中富集，该亚型患者生存率较低 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "9; 3; 7",
+        "known_drugs": "是; 正在研究",
+        "drug_resistance": "cladribine (CTNNB1突变型HCC对ICI（如anti-PD1）耐药，但对cladribine敏感；lenvatinib单药治疗可诱导晚期侵袭性表型和转移增加)"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "9; 3; 7",
+        "mutation_frequency": "点突变 (rs号未提及); 点突变 (未提及); 点突变; 扩增 (rs号未提及)"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: nature13589.pdf)",
+        "侵袭转移 (来源: lic-2025-0014-0004-543217.pdf, s41586-025-08585-z.pdf)",
+        "免疫逃逸 (来源: s41586-025-08585-z.pdf)",
+        "细胞增殖 (来源: lic-2025-0014-0004-543217.pdf, nature13589.pdf, s41586-025-08585-z.pdf)"
+      ],
+      "references": [
+        {
+          "title": 3,
+          "year": "High Frequency of Variants Associated with Benign and Malignant Liver Tumors in Patients with Congenital Porto-Systemic Shunts",
+          "location": "2024",
+          "source_pdf": "Fig.1;Fig.2;p.412"
+        },
+        {
+          "title": 7,
+          "year": "CRISPR-mediated direct mutation of cancer genes in the mouse liver",
+          "location": "2014",
+          "source_pdf": "Fig.4a-e;ExtendedDataFig.10b"
+        },
+        {
+          "title": 9,
+          "year": "Human-correlated genetic models identify precision therapy for liver cancer",
+          "location": "2025",
+          "source_pdf": "Fig. 3a; Fig. 4a; Extended Data Fig. 8a-b"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "3",
+          "7",
+          "9"
+        ],
+        "cancer_subtype": [
+          "WNT–β-catenin signalling",
+          "Wnt",
+          "Wnt/β-catenin通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关",
+          "NASH相关",
+          "胆管细胞癌",
+          "酒精性"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "动物模型"
+        ]
+      }
+    },
+    "IGF1R": {
+      "gene_name": "IGF1R",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "main.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\main.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "4",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "IGF1R高表达与肝癌患者不良生存预后相关；IGF1R缺失虽抑制部分代谢表型，却意外促进肿瘤恶性转化 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "4",
+        "known_drugs": "正在研究",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "4",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: main.pdf)",
+        "细胞增殖 (来源: main.pdf)",
+        "血管生成 (来源: main.pdf)"
+      ],
+      "references": [
+        {
+          "title": 4,
+          "year": "Hepatic IR and IGF1R signaling govern distinct metabolic and carcinogenic processes upon PTEN deficiency in the liver",
+          "location": "2025",
+          "source_pdf": "Fig.5C;Fig.5F;Fig.S8A"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "4"
+        ],
+        "cancer_subtype": [
+          "MAPK",
+          "PI3K/AKT"
+        ],
+        "experimental_model": [
+          "NASH相关"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "动物模型"
+        ]
+      }
+    },
+    "INSR": {
+      "gene_name": "INSR",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "main.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\main.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "4",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "IR信号增强与肝脂肪变性、肝肿大、全身脂肪含量增加及肝癌发生相关；IR缺失可减少肿瘤数量和体积，但不完全阻止癌变 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "4",
+        "known_drugs": "正在研究",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "4",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: main.pdf)",
+        "侵袭转移 (来源: main.pdf)",
+        "细胞增殖 (来源: main.pdf)"
+      ],
+      "references": [
+        {
+          "title": 4,
+          "year": "Hepatic IR and IGF1R signaling govern distinct metabolic and carcinogenic processes upon PTEN deficiency in the liver",
+          "location": "2025",
+          "source_pdf": "Fig.4A;Fig.5F;Fig.S16"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "4"
+        ],
+        "cancer_subtype": [
+          "MAPK",
+          "PI3K/AKT"
+        ],
+        "experimental_model": [
+          "NASH相关"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "动物模型"
+        ]
+      }
+    },
+    "MYC": {
+      "gene_name": "MYC",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "s41586-025-08585-z.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "9",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "负相关",
+        "locations": "MYC扩增与CTNNB1突变共存时驱动HuMo cluster 1表型；与增殖通路（E2F targets, MYC targets V1/V2）、G2M检查点激活正相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "9",
+        "known_drugs": "正在研究",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "9",
+        "mutation_frequency": "扩增 (未提及)"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: s41586-025-08585-z.pdf)",
+        "细胞增殖 (来源: s41586-025-08585-z.pdf)"
+      ],
+      "references": [
+        {
+          "title": 9,
+          "year": "Human-correlated genetic models identify precision therapy for liver cancer",
+          "location": "2025",
+          "source_pdf": "Fig. 1b; Fig. 3a; Fig. 4a"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "9"
+        ],
+        "cancer_subtype": [
+          "E2F targets",
+          "G2M checkpoint",
+          "MYC targets V1",
+          "MYC targets V2"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "evidence_level": [
+          "动物模型"
+        ]
+      }
+    },
+    "NRAS": {
+      "gene_name": "NRAS",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "nature10599.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nature10599.pdf"
+        },
+        {
+          "pdf_file": "nihms-2143397.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nihms-2143397.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "6; 8",
+        "prognosis_correlation": {
+          "OS": "高表达; 未提及",
+          "DFS": "负相关; 未提及"
+        },
+        "clinicopathological_correlation": "负相关; 未提及",
+        "locations": "NrasG12V突变诱导肝细胞衰老，其逃逸与肝细胞癌发生直接相关；在免疫缺陷小鼠中NrasG12V表达导致HCC快速发生 (); 未提及 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "6; 8",
+        "known_drugs": "正在研究",
+        "drug_resistance": "MEK抑制剂 (未提及)"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "6; 8",
+        "mutation_frequency": "点突变 (rs121913234); 点突变 (rs号未在文献中提及)"
+      },
+      "biological_functions": [
+        "侵袭转移 (来源: nature10599.pdf, nihms-2143397.pdf)",
+        "凋亡 (来源: nature10599.pdf)",
+        "细胞增殖 (来源: nature10599.pdf)",
+        "血管生成 (来源: nihms-2143397.pdf)"
+      ],
+      "references": [
+        {
+          "title": 6,
+          "year": "Senescence surveillance of pre-malignant hepatocytes limits liver cancer development",
+          "location": "2011",
+          "source_pdf": "Fig.1;Fig.2i;Fig.3f"
+        },
+        {
+          "title": 8,
+          "year": "Lyve1-driven NrasQ61R causes edema, enlarged lymphatic vessels, and hepatic vascular defects in embryonic mice",
+          "location": "2025",
+          "source_pdf": "Fig.2;Fig.5;Fig.6"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "6",
+          "8"
+        ],
+        "cancer_subtype": [
+          "MAPK",
+          "MAPK信号通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "evidence_level": [
+          "动物模型",
+          "细胞系"
+        ]
+      }
+    },
+    "PDE2A": {
+      "gene_name": "PDE2A",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "ijms-27-04425-v2.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "1",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "高风险组中PDE2A表达显著升高；与肿瘤分级（G3/G4）和T分期（T3/T4）呈正相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "1",
+        "known_drugs": "是",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "1",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: ijms-27-04425-v2.pdf)",
+        "凋亡 (来源: ijms-27-04425-v2.pdf)",
+        "细胞增殖 (来源: ijms-27-04425-v2.pdf)"
+      ],
+      "references": [
+        {
+          "title": 1,
+          "year": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+          "location": "2026",
+          "source_pdf": "Fig.4D;Fig.8H;Fig.9E"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "1"
+        ],
+        "cancer_subtype": [
+          "cAMP/cGMP信号通路",
+          "mTOR信号通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关",
+          "NASH相关",
+          "酒精性"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "细胞系"
+        ]
+      }
+    },
+    "PTEN": {
+      "gene_name": "PTEN",
+      "gene_function_category": "抑癌基因",
+      "sources": [
+        {
+          "pdf_file": "main.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\main.pdf"
+        },
+        {
+          "pdf_file": "nature13589.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nature13589.pdf"
+        },
+        {
+          "pdf_file": "s41586-025-08585-z.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "4; 9; 7",
+        "prognosis_correlation": {
+          "OS": "低表达",
+          "DFS": "负相关; 未提及"
+        },
+        "clinicopathological_correlation": "负相关; 未提及; 负相关",
+        "locations": "PTEN缺失与肝细胞癌发生、脂肪变性、炎症/纤维化及肿瘤恶性程度升高相关；在PTEN缺陷背景下，IR缺失降低癌症负担，IGF1R缺失反而促进恶性转化 (); PTEN缺失导致肝细胞脂质蓄积、Akt磷酸化升高，与肝细胞癌发生相关 (); PTEN缺失与CTNNB1激活协同促进HuMo cluster 1表型；与PI3K–AKT–MTOR signalling通路激活相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "4; 9; 7",
+        "known_drugs": "正在研究; 是",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "4; 9; 7",
+        "mutation_frequency": "缺失 (未提及); 缺失; 点突变 (未提及); 缺失 (未提及)"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: main.pdf, nature13589.pdf)",
+        "侵袭转移 (来源: main.pdf, nature13589.pdf, s41586-025-08585-z.pdf)",
+        "免疫逃逸 (来源: main.pdf)",
+        "凋亡 (来源: main.pdf)",
+        "细胞增殖 (来源: main.pdf, nature13589.pdf, s41586-025-08585-z.pdf)"
+      ],
+      "references": [
+        {
+          "title": 4,
+          "year": "Hepatic IR and IGF1R signaling govern distinct metabolic and carcinogenic processes upon PTEN deficiency in the liver",
+          "location": "2025",
+          "source_pdf": "Fig.1A;Fig.5D;Fig.5F"
+        },
+        {
+          "title": 7,
+          "year": "CRISPR-mediated direct mutation of cancer genes in the mouse liver",
+          "location": "2014",
+          "source_pdf": "Fig.1c-d;Fig.2a;Fig.3b"
+        },
+        {
+          "title": 9,
+          "year": "Human-correlated genetic models identify precision therapy for liver cancer",
+          "location": "2025",
+          "source_pdf": "Fig. 1b; Fig. 3a; Fig. 4a"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "4",
+          "7",
+          "9"
+        ],
+        "cancer_subtype": [
+          "MAPK",
+          "PI3K/AKT",
+          "PI3K/Akt通路",
+          "PI3K–AKT–MTOR signalling"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关",
+          "NASH相关"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "动物模型",
+          "细胞系"
+        ]
+      }
+    },
+    "PTTG1": {
+      "gene_name": "PTTG1",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "WJG-12-6085.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\WJG-12-6085.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "10",
+        "prognosis_correlation": {
+          "OS": "未提及",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "未提及 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "10",
+        "known_drugs": "正在研究",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "10",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "侵袭转移 (来源: WJG-12-6085.pdf)"
+      ],
+      "references": [
+        {
+          "title": 10,
+          "year": "Gene therapy of liver cancer",
+          "location": "2006",
+          "source_pdf": "p.6087"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "10"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [],
+        "evidence_level": [
+          "动物模型",
+          "细胞系"
+        ]
+      }
+    },
+    "SAC3D1": {
+      "gene_name": "SAC3D1",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "ijms-27-04425-v2.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "1",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "高风险组中SAC3D1表达显著升高；与肿瘤分级（G3/G4）和T分期（T3/T4）呈正相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "1",
+        "known_drugs": "是",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "1",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: ijms-27-04425-v2.pdf)",
+        "侵袭转移 (来源: ijms-27-04425-v2.pdf)",
+        "细胞增殖 (来源: ijms-27-04425-v2.pdf)"
+      ],
+      "references": [
+        {
+          "title": 1,
+          "year": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+          "location": "2026",
+          "source_pdf": "Fig.4D;Fig.8H;Fig.9E"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "1"
+        ],
+        "cancer_subtype": [
+          "RNA运输",
+          "mTOR信号通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关",
+          "NASH相关",
+          "酒精性"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "细胞系"
+        ]
+      }
+    },
+    "SOCS1": {
+      "gene_name": "SOCS1",
+      "gene_function_category": "抑癌基因",
+      "sources": [
+        {
+          "pdf_file": "WJG-12-6085.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\WJG-12-6085.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "10",
+        "prognosis_correlation": {
+          "OS": "低表达",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "其 promoter 频繁被甲基化导致 JAK/STAT 通路激活 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "10",
+        "known_drugs": "是",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "10",
+        "mutation_frequency": "甲基化 (未提及)"
+      },
+      "biological_functions": [
+        "凋亡 (来源: WJG-12-6085.pdf)"
+      ],
+      "references": [
+        {
+          "title": 10,
+          "year": "Gene therapy of liver cancer",
+          "location": "2006",
+          "source_pdf": "p.6086"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "10"
+        ],
+        "cancer_subtype": [
+          "JAK/STAT"
+        ],
+        "experimental_model": [
+          "HBV相关"
+        ],
+        "evidence_level": [
+          "细胞系"
+        ]
+      }
+    },
+    "TERT": {
+      "gene_name": "TERT",
+      "gene_function_category": "原癌基因",
+      "sources": [
+        {
+          "pdf_file": "WJG-12-6085.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\WJG-12-6085.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "10",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "与 HCC 高度相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "10",
+        "known_drugs": "正在研究",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "10",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖 (来源: WJG-12-6085.pdf)"
+      ],
+      "references": [
+        {
+          "title": 10,
+          "year": "Gene therapy of liver cancer",
+          "location": "2006",
+          "source_pdf": "p.6087"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "10"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "HBV相关"
+        ],
+        "evidence_level": [
+          "细胞系"
+        ]
+      }
+    },
+    "TIGAR": {
+      "gene_name": "TIGAR",
+      "gene_function_category": "抑癌基因",
+      "sources": [
+        {
+          "pdf_file": "lic-2025-0014-0001-540180.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\lic-2025-0014-0001-540180.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "2",
+        "prognosis_correlation": {
+          "OS": "高表达",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "负相关",
+        "locations": "TIGAR阳性与低白蛋白、高AFP/DCP、大肿瘤、多发肿瘤、BCLC C期、单结节型、低分化、微血管侵犯、微小肝内转移显著相关 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "2",
+        "known_drugs": "是",
+        "drug_resistance": "lenvatinib; baicalein; liproxstatin (TIGAR高表达介导对铁死亡的抵抗，可能影响lenvatinib等铁死亡诱导剂疗效)"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "2",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "代谢重编程 (来源: lic-2025-0014-0001-540180.pdf)",
+        "侵袭转移 (来源: lic-2025-0014-0001-540180.pdf)",
+        "免疫逃逸 (来源: lic-2025-0014-0001-540180.pdf)",
+        "细胞增殖 (来源: lic-2025-0014-0001-540180.pdf)",
+        "耐药 (来源: lic-2025-0014-0001-540180.pdf)"
+      ],
+      "references": [
+        {
+          "title": 2,
+          "year": "The Impact of TP53-Induced Glycolysis and Apoptosis Regulator on Prognosis in Hepatocellular Carcinoma: Association with Tumor Microenvironment and Ferroptosis",
+          "location": "2024",
+          "source_pdf": "Fig.1e-f;Table2;Fig.4c"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "2"
+        ],
+        "cancer_subtype": [
+          "AMPK-ACC通路",
+          "NRF2信号通路",
+          "VEGF信号通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "细胞系"
+        ]
+      }
+    },
+    "TP53": {
+      "gene_name": "TP53",
+      "gene_function_category": "抑癌基因",
+      "sources": [
+        {
+          "pdf_file": "ijms-27-04425-v2.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf"
+        },
+        {
+          "pdf_file": "nature13589.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nature13589.pdf"
+        },
+        {
+          "pdf_file": "s41586-025-08585-z.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf"
+        },
+        {
+          "pdf_file": "WJG-12-6085.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\WJG-12-6085.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "1; 10; 9; 7",
+        "prognosis_correlation": {
+          "OS": "低表达; 未提及",
+          "DFS": "负相关; 未提及"
+        },
+        "clinicopathological_correlation": "未提及; 未提及; 负相关; 未提及",
+        "locations": "高风险组TP53突变率显著升高（38% vs. 13%），与不良预后显著相关 (); TP53与PTEN共缺失可诱导小鼠肝癌形成，肿瘤具有胆管分化特征 (); TP53突变与CTNNB1突变呈动态互斥关系，随肿瘤分期变化；在HuMo cluster 4中富集，与较差分化、高增殖、EMT特征相关 (); 未提及 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "1; 10; 9; 7",
+        "known_drugs": "是; 正在研究",
+        "drug_resistance": "Gendicine (未提及)"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "1; 10; 9; 7",
+        "mutation_frequency": "点突变 (38%（高风险组）；13%（低风险组）); 缺失; 点突变 (未提及); 点突变 (rs17878362未提及；文献明确提及Trp53R172H（小鼠对应人R175H，经典错义突变位点，但未提供rs号）); 点突变 (rs号未提及)"
+      },
+      "biological_functions": [
+        "侵袭转移 (来源: nature13589.pdf, s41586-025-08585-z.pdf)",
+        "凋亡 (来源: ijms-27-04425-v2.pdf, nature13589.pdf, s41586-025-08585-z.pdf, WJG-12-6085.pdf)",
+        "基因组稳定性 (来源: ijms-27-04425-v2.pdf)",
+        "细胞增殖 (来源: ijms-27-04425-v2.pdf, nature13589.pdf, s41586-025-08585-z.pdf, WJG-12-6085.pdf)"
+      ],
+      "references": [
+        {
+          "title": 1,
+          "year": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+          "location": "2026",
+          "source_pdf": "Fig.7I;p.12"
+        },
+        {
+          "title": 7,
+          "year": "CRISPR-mediated direct mutation of cancer genes in the mouse liver",
+          "location": "2014",
+          "source_pdf": "Fig.3b-c;Fig.3d;ExtendedDataFig.8b"
+        },
+        {
+          "title": 9,
+          "year": "Human-correlated genetic models identify precision therapy for liver cancer",
+          "location": "2025",
+          "source_pdf": "Fig. 1b; Fig. 4a; Extended Data Fig. 1m-n"
+        },
+        {
+          "title": 10,
+          "year": "Gene therapy of liver cancer",
+          "location": "2006",
+          "source_pdf": "p.6086;p.6091"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "1",
+          "10",
+          "7",
+          "9"
+        ],
+        "cancer_subtype": [
+          "p53 pathway",
+          "p53信号通路"
+        ],
+        "experimental_model": [
+          "HBV相关",
+          "HCV相关",
+          "NASH相关",
+          "酒精性"
+        ],
+        "evidence_level": [
+          "临床标本",
+          "动物模型",
+          "细胞系"
+        ]
+      }
+    },
+    "TRAIL": {
+      "gene_name": "TRAIL",
+      "gene_function_category": "双向功能基因",
+      "sources": [
+        {
+          "pdf_file": "WJG-12-6085.pdf",
+          "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\WJG-12-6085.pdf"
+        }
+      ],
+      "expression_and_prognosis": {
+        "expression_level": "10",
+        "prognosis_correlation": {
+          "OS": "未提及",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "未提及",
+        "locations": "诱导癌细胞凋亡，对正常肝细胞毒性较低 ()"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "10",
+        "known_drugs": "是",
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": "10",
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "凋亡 (来源: WJG-12-6085.pdf)"
+      ],
+      "references": [
+        {
+          "title": 10,
+          "year": "Gene therapy of liver cancer",
+          "location": "2006",
+          "source_pdf": "p.6088"
+        }
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "10"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "HBV相关"
+        ],
+        "evidence_level": [
+          "动物模型"
+        ]
+      }
+    }
+  }
+}

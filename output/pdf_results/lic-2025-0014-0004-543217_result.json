@@ -1,0 +1,66 @@
+{
+  "pdf_file": "lic-2025-0014-0004-543217.pdf",
+  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\lic-2025-0014-0004-543217.pdf",
+  "page_count": 12,
+  "status": "ok",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "CTNNB1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "未提及",
+        "prognosis_correlation": {
+          "OS": "未提及",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "CTNNB1变异在CPSS患者肝肿瘤中高频出现（26/38，68%），且与恶性肿瘤（HCC、HB）显著相关；p.Asp32Gly、p.Ser33Cys、p.Ser33Pro等32/33位点变异在恶性肿瘤中占比60%，显著高于良性肿瘤（p=0.02）；CTNNB1变异还见于FNH样结节及背景肝微病灶，提示其驱动早期肿瘤发生和场效应"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "rs号未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "侵袭转移"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "Wnt"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关",
+          "酒精性",
+          "NASH相关",
+          "胆管细胞癌"
+        ],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "reference": {
+        "title": "High Frequency of Variants Associated with Benign and Malignant Liver Tumors in Patients with Congenital Porto-Systemic Shunts",
+        "year": 2024,
+        "location": "Fig.1;Fig.2;p.412",
+        "pdf_file": "lic-2025-0014-0004-543217.pdf"
+      },
+      "source_pdf": "lic-2025-0014-0004-543217.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\lic-2025-0014-0004-543217.pdf",
+      "extraction_time": "2026-06-02T22:08:35.752987"
+    }
+  ],
+  "extraction_time": "2026-06-02T22:08:35.753019"
+}

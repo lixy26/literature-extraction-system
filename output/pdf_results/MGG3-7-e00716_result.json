@@ -1,0 +1,61 @@
+{
+  "pdf_file": "MGG3-7-e00716.pdf",
+  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\MGG3-7-e00716.pdf",
+  "page_count": 9,
+  "status": "ok",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "ACYP2",
+      "basic_info": {
+        "gene_function_category": "功能未明确"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "正相关",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "ACYP2基因低表达见于LIHC grade 3；rs1682111突变影响结肠-乙状结肠组织中ACYP2 mRNA表达（TT基因型表达显著低于AA型）"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "未提及",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "rs1682111; rs843720; rs843645; rs11125529"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [],
+        "cancer_subtype": [
+          "HBV相关",
+          "酒精性"
+        ],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "reference": {
+        "title": "Associations between polymorphisms of the ACYP2 gene and Liver cancer risk: A case‐control study and meta‐analysis",
+        "year": 2019,
+        "location": "Fig.3; Fig.4; Fig.5",
+        "pdf_file": "MGG3-7-e00716.pdf"
+      },
+      "source_pdf": "MGG3-7-e00716.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\MGG3-7-e00716.pdf",
+      "extraction_time": "2026-06-02T22:10:03.814187"
+    }
+  ],
+  "extraction_time": "2026-06-02T22:10:03.814216"
+}

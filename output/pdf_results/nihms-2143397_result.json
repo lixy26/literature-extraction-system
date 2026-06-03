@@ -1,0 +1,62 @@
+{
+  "pdf_file": "nihms-2143397.pdf",
+  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nihms-2143397.pdf",
+  "page_count": 16,
+  "status": "ok",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "NRAS",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "未提及",
+        "prognosis_correlation": {
+          "OS": "未提及",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "未提及"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [
+          "MEK抑制剂"
+        ],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "rs号未在文献中提及"
+      },
+      "biological_functions": [
+        "血管生成",
+        "侵袭转移"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "MAPK信号通路"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "reference": {
+        "title": "Lyve1-driven NrasQ61R causes edema, enlarged lymphatic vessels, and hepatic vascular defects in embryonic mice",
+        "year": 2025,
+        "location": "Fig.2;Fig.5;Fig.6",
+        "pdf_file": "nihms-2143397.pdf"
+      },
+      "source_pdf": "nihms-2143397.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nihms-2143397.pdf",
+      "extraction_time": "2026-06-02T22:11:07.360614"
+    }
+  ],
+  "extraction_time": "2026-06-02T22:11:07.360638"
+}

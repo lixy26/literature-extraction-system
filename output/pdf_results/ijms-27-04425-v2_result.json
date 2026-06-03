@@ -1,0 +1,236 @@
+{
+  "pdf_file": "ijms-27-04425-v2.pdf",
+  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf",
+  "page_count": 21,
+  "status": "ok",
+  "gene_count": 4,
+  "genes": [
+    {
+      "gene_name": "BOP1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "高风险组中BOP1表达显著升高；与肿瘤分级（G3/G4）和T分期（T3/T4）呈正相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡",
+        "侵袭转移"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "mTOR信号通路"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关",
+          "酒精性",
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "细胞系",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究",
+          "细胞实验"
+        ]
+      },
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": 2026,
+        "location": "Fig.4D;Fig.8H;Fig.9E",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf",
+      "extraction_time": "2026-06-02T22:07:35.616896"
+    },
+    {
+      "gene_name": "SAC3D1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "高风险组中SAC3D1表达显著升高；与肿瘤分级（G3/G4）和T分期（T3/T4）呈正相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "侵袭转移",
+        "代谢重编程"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "RNA运输",
+          "mTOR信号通路"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关",
+          "酒精性",
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "细胞系",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究",
+          "细胞实验"
+        ]
+      },
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": 2026,
+        "location": "Fig.4D;Fig.8H;Fig.9E",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf",
+      "extraction_time": "2026-06-02T22:07:35.617927"
+    },
+    {
+      "gene_name": "PDE2A",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "高风险组中PDE2A表达显著升高；与肿瘤分级（G3/G4）和T分期（T3/T4）呈正相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡",
+        "代谢重编程"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "cAMP/cGMP信号通路",
+          "mTOR信号通路"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关",
+          "酒精性",
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "细胞系",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究",
+          "细胞实验"
+        ]
+      },
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": 2026,
+        "location": "Fig.4D;Fig.8H;Fig.9E",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf",
+      "extraction_time": "2026-06-02T22:07:35.617947"
+    },
+    {
+      "gene_name": "TP53",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "未提及",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "未提及"
+        },
+        "clinicopathological_correlation": "高风险组TP53突变率显著升高（38% vs. 13%），与不良预后显著相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "38%（高风险组）；13%（低风险组）"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡",
+        "基因组稳定性"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "p53信号通路"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关",
+          "酒精性",
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": 2026,
+        "location": "Fig.7I;p.12",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf",
+      "extraction_time": "2026-06-02T22:07:35.617956"
+    }
+  ],
+  "extraction_time": "2026-06-02T22:07:35.617969"
+}

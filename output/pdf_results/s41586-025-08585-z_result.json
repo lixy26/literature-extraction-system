@@ -1,0 +1,285 @@
+{
+  "pdf_file": "s41586-025-08585-z.pdf",
+  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf",
+  "page_count": 43,
+  "status": "ok",
+  "gene_count": 5,
+  "genes": [
+    {
+      "gene_name": "CTNNB1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "与WNT–β-catenin激活、免疫排斥表型、低免疫评分显著相关；在HuMo cluster 1中富集，该亚型患者生存率较低"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [
+          "cladribine"
+        ],
+        "drug_resistance": "CTNNB1突变型HCC对ICI（如anti-PD1）耐药，但对cladribine敏感；lenvatinib单药治疗可诱导晚期侵袭性表型和转移增加"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变",
+          "扩增"
+        ],
+        "mutation_frequency": "rs号未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "侵袭转移",
+        "免疫逃逸"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "WNT–β-catenin signalling"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "experimental_model": [
+          "动物模型",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究",
+          "动物实验"
+        ]
+      },
+      "reference": {
+        "title": "Human-correlated genetic models identify precision therapy for liver cancer",
+        "year": 2025,
+        "location": "Fig. 3a; Fig. 4a; Extended Data Fig. 8a-b",
+        "pdf_file": "s41586-025-08585-z.pdf"
+      },
+      "source_pdf": "s41586-025-08585-z.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf",
+      "extraction_time": "2026-06-02T22:19:04.047504"
+    },
+    {
+      "gene_name": "TP53",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "TP53突变与CTNNB1突变呈动态互斥关系，随肿瘤分期变化；在HuMo cluster 4中富集，与较差分化、高增殖、EMT特征相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "rs17878362未提及；文献明确提及Trp53R172H（小鼠对应人R175H，经典错义突变位点，但未提供rs号）"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡",
+        "侵袭转移"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "p53 pathway"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "reference": {
+        "title": "Human-correlated genetic models identify precision therapy for liver cancer",
+        "year": 2025,
+        "location": "Fig. 1b; Fig. 4a; Extended Data Fig. 1m-n",
+        "pdf_file": "s41586-025-08585-z.pdf"
+      },
+      "source_pdf": "s41586-025-08585-z.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf",
+      "extraction_time": "2026-06-02T22:19:04.047537"
+    },
+    {
+      "gene_name": "MYC",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "MYC扩增与CTNNB1突变共存时驱动HuMo cluster 1表型；与增殖通路（E2F targets, MYC targets V1/V2）、G2M检查点激活正相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "扩增"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "代谢重编程"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "MYC targets V1",
+          "MYC targets V2",
+          "G2M checkpoint",
+          "E2F targets"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "reference": {
+        "title": "Human-correlated genetic models identify precision therapy for liver cancer",
+        "year": 2025,
+        "location": "Fig. 1b; Fig. 3a; Fig. 4a",
+        "pdf_file": "s41586-025-08585-z.pdf"
+      },
+      "source_pdf": "s41586-025-08585-z.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf",
+      "extraction_time": "2026-06-02T22:19:04.047547"
+    },
+    {
+      "gene_name": "PTEN",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "PTEN缺失与CTNNB1激活协同促进HuMo cluster 1表型；与PI3K–AKT–MTOR signalling通路激活相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "缺失"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "侵袭转移"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "PI3K–AKT–MTOR signalling"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "reference": {
+        "title": "Human-correlated genetic models identify precision therapy for liver cancer",
+        "year": 2025,
+        "location": "Fig. 1b; Fig. 3a; Fig. 4a",
+        "pdf_file": "s41586-025-08585-z.pdf"
+      },
+      "source_pdf": "s41586-025-08585-z.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf",
+      "extraction_time": "2026-06-02T22:19:04.047555"
+    },
+    {
+      "gene_name": "CDKN2A",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "CDKN2A缺失与CTNNB1/MYC/TP53等多基因共突变驱动HuMo cluster 4，表现为高度增殖、低分化、EMT及免疫耗竭特征"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "缺失"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡"
+      ],
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "p53 pathway"
+        ],
+        "cancer_subtype": [
+          "HBV相关",
+          "HCV相关"
+        ],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "reference": {
+        "title": "Human-correlated genetic models identify precision therapy for liver cancer",
+        "year": 2025,
+        "location": "Fig. 1b; Fig. 3a; Fig. 4a",
+        "pdf_file": "s41586-025-08585-z.pdf"
+      },
+      "source_pdf": "s41586-025-08585-z.pdf",
+      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\s41586-025-08585-z.pdf",
+      "extraction_time": "2026-06-02T22:19:04.047562"
+    }
+  ],
+  "extraction_time": "2026-06-02T22:19:04.047570"
+}
