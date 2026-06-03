@@ -1,0 +1,146 @@
+{
+  "pdf_file": "ijms-27-04425-v2.pdf",
+  "pdf_path": "e:\\大三\\生信实验\\选做实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\ijms-27-04425-v2.pdf",
+  "gene_count": 3,
+  "genes": [
+    {
+      "gene_name": "BOP1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "高表达（作为高风险评分的核心基因）与高级别肿瘤（G3, G4）和高T分期（T3, T4）显著相关。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "文献对包含BOP1高表达的高风险组描述存在矛盾：摘要指出对5-氟尿嘧啶更敏感，但正文2.7节指出5-氟尿嘧啶、多西他赛和奥沙利铂的IC50值显著更高（提示耐药性）。"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "mTOR信号通路"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "代谢重编程",
+        "免疫逃逸；侵袭转移"
+      ],
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": "2026",
+        "location": "Fig.4D;Fig.8H;Fig.9E",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf"
+    },
+    {
+      "gene_name": "SAC3D1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "高表达（作为高风险评分的核心基因）与高级别肿瘤（G3, G4）和高T分期（T3, T4）显著相关。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及直接的药物抗性，但其高表达所属的高风险组与化疗药物(如5-FU、多西他赛)的敏感性/IC50值改变相关。"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "侵袭转移",
+        "代谢重编程；免疫逃逸"
+      ],
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": "2026",
+        "location": "Fig.4D;Fig.8H;Fig.9E",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf"
+    },
+    {
+      "gene_name": "PDE2A",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "高表达（作为高风险评分的核心基因）与高级别肿瘤（G3, G4）和高T分期（T3, T4）显著相关。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "PDE2A的失调过表达会增强代谢适应性和治疗耐药性"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "cAMP/cGMP信号通路",
+          "mTOR信号通路"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "凋亡",
+        "代谢重编程；耐药；免疫逃逸"
+      ],
+      "reference": {
+        "title": "Prognostic Genes Linked to Asparagine Metabolism in Hepatocellular Carcinoma: Identification, Validation, and Regulatory Mechanisms Based on Transcriptome and Single-Cell RNA Sequencing",
+        "year": "2026",
+        "location": "Fig.4D;Fig.8H;Fig.9E",
+        "pdf_file": "ijms-27-04425-v2.pdf"
+      },
+      "source_pdf": "ijms-27-04425-v2.pdf"
+    }
+  ]
+}

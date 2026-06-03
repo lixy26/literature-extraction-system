@@ -1,0 +1,60 @@
+{
+  "pdf_file": "lic-2025-0014-0001-540180.pdf",
+  "pdf_path": "e:\\大三\\生信实验\\选做实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\lic-2025-0014-0001-540180.pdf",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "TIGAR",
+      "basic_info": {
+        "gene_function_category": "双向功能基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": "负相关"
+        },
+        "clinicopathological_correlation": "TIGAR阳性与低白蛋白、高AFP/DCP、大肿瘤、多发肿瘤、BCLC C期、单结节型、低分化、微血管侵犯、微小肝内转移显著相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "TIGAR高表达介导对铁死亡的抵抗，可能影响lenvatinib等铁死亡诱导剂疗效"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "AMPK-ACC通路",
+          "VEGF信号通路",
+          "NRF2信号通路"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "细胞系",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究",
+          "细胞实验"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "侵袭转移",
+        "代谢重编程",
+        "免疫逃逸",
+        "耐药；血管生成"
+      ],
+      "reference": {
+        "title": "The Impact of TP53-Induced Glycolysis and Apoptosis Regulator on Prognosis in Hepatocellular Carcinoma: Association with Tumor Microenvironment and Ferroptosis",
+        "year": "2024",
+        "location": "Fig.1e-f;Table1;Fig.4c",
+        "pdf_file": "lic-2025-0014-0001-540180.pdf"
+      },
+      "source_pdf": "lic-2025-0014-0001-540180.pdf"
+    }
+  ]
+}

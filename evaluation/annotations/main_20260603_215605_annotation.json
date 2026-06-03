@@ -1,0 +1,159 @@
+{
+  "pdf_file": "main.pdf",
+  "pdf_path": "e:\\大三\\生信实验\\选做实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\main.pdf",
+  "gene_count": 3,
+  "genes": [
+    {
+      "gene_name": "PTEN",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "PTEN在肝脏脂肪变性和肝癌中表达降低或丢失。其在肝细胞中的缺失会引发严重的脂肪变性、肝大，并随着年龄增长自发发展为肝细胞腺瘤(HCA)和肝细胞癌(HCC)，高度模拟人类脂肪性肝炎(MASH/NASH)相关肝癌的发生过程。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "PI3K/AKT",
+          "MAPK"
+        ],
+        "cancer_subtype": [
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "代谢重编程"
+      ],
+      "reference": {
+        "title": "Hepatic IR and IGF1R signaling govern distinct metabolic and carcinogenic processes upon PTEN deficiency in the liver",
+        "year": "2025",
+        "location": "Fig.1A;Fig.5D;Fig.5F",
+        "pdf_file": "main.pdf"
+      },
+      "source_pdf": "main.pdf"
+    },
+    {
+      "gene_name": "INSR",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "在人类TCGA和GEO数据库(LIHC)中，INSR的表达在非癌和肝癌组织间存在极大变异（既有强烈降低也有升高），在不同HCC分期之间无显著变化，且与患者总体生存期无显著关联(Logrank p=0.22)，不适合作为良好的预后生物标志物。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "PI3K/AKT",
+          "MAPK"
+        ],
+        "cancer_subtype": [
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "动物模型",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "动物实验",
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "代谢重编程"
+      ],
+      "reference": {
+        "title": "Hepatic IR and IGF1R signaling govern distinct metabolic and carcinogenic processes upon PTEN deficiency in the liver",
+        "year": "2025",
+        "location": "Fig.4A;Fig.5F;Fig.S16",
+        "pdf_file": "main.pdf"
+      },
+      "source_pdf": "main.pdf"
+    },
+    {
+      "gene_name": "IGF1R",
+      "basic_info": {
+        "gene_function_category": "双向功能基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "IGF1R高表达与肝癌患者不良生存预后相关；IGF1R缺失虽抑制部分代谢表型，却意外促进肿瘤恶性转化"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "过表达IR-A亚型和IGF-2的肿瘤，对单一的IGF1R抗癌治疗具有耐药性。"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "PI3K/AKT",
+          "MAPK"
+        ],
+        "cancer_subtype": [
+          "NASH相关"
+        ],
+        "experimental_model": [
+          "动物模型",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "动物实验",
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖",
+        "代谢重编程",
+        "耐药"
+      ],
+      "reference": {
+        "title": "Hepatic IR and IGF1R signaling govern distinct metabolic and carcinogenic processes upon PTEN deficiency in the liver",
+        "year": "2025",
+        "location": "Fig.5C;Fig.5F;Fig.S8A",
+        "pdf_file": "main.pdf"
+      },
+      "source_pdf": "main.pdf"
+    }
+  ]
+}

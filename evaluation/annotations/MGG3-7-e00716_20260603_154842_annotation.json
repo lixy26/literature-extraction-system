@@ -1,0 +1,52 @@
+{
+  "pdf_file": "MGG3-7-e00716.pdf",
+  "pdf_path": "e:\\大三\\生信实验\\选做实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\MGG3-7-e00716.pdf",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "ACYP2",
+      "basic_info": {
+        "gene_function_category": "功能未明确"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "正相关",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "在肝癌（LIHC）Grade 3 组织中显著低表达 。高表达组患者的总生存率显著高于低表达组（HR=0.54, 95% CI: 0.38-0.77, p=0.00049）"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "rs1682111; rs843720; rs843645; rs11125529"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "凋亡"
+      ],
+      "reference": {
+        "title": "Associations between polymorphisms of the ACYP2 gene and Liver cancer risk: A case‐control study and meta‐analysis",
+        "year": "2019",
+        "location": "Fig.3; Fig.4; Fig.5",
+        "pdf_file": "MGG3-7-e00716.pdf"
+      },
+      "source_pdf": "MGG3-7-e00716.pdf"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "pdf_file": "lic-2025-0014-0004-543217.pdf",
+  "pdf_path": "e:\\大三\\生信实验\\选做实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\lic-2025-0014-0004-543217.pdf",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "CTNNB1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "CTNNB1变异在CPSS患者肝肿瘤中高频出现（26/38，68%），且与恶性肿瘤（HCC、HB）显著相关；p.Asp32Gly、p.Ser33Cys、p.Ser33Pro等32/33位点变异在恶性肿瘤中占比60%，显著高于良性肿瘤（p=0.02）；CTNNB1变异还见于FNH样结节及背景肝微病灶，提示其驱动早期肿瘤发生和场效应"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "在测序结节中突变率为70% (26/37)。具体发生错义突变的位点包括：p.Asp32Gly, p.Ser33Cys, p.Ser33Pro, p.His36Pro, p.Thr41Ala, p.Ser45Pro, p.Ser45Phe，以及 p.Lys335Ile。原文未提及具体的rs号。"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "Wnt"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "High Frequency of Variants Associated with Benign and Malignant Liver Tumors in Patients with Congenital Porto-Systemic Shunts",
+        "year": "2024",
+        "location": "Fig.1;Fig.2;p.412",
+        "pdf_file": "lic-2025-0014-0004-543217.pdf"
+      },
+      "source_pdf": "lic-2025-0014-0004-543217.pdf"
+    }
+  ]
+}
