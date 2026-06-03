@@ -1,0 +1,57 @@
+{
+  "PTEN": {
+    "pathways": [
+      "PI3K-Akt signaling pathway",
+      "FoxO signaling pathway",
+      "mTOR signaling pathway"
+    ],
+    "functions": [
+      "细胞增殖",
+      "凋亡",
+      "代谢重编程"
+    ]
+  },
+  "TP53": {
+    "pathways": [
+      "p53 signaling pathway",
+      "Cell cycle",
+      "Apoptosis"
+    ],
+    "functions": [
+      "细胞周期调控",
+      "凋亡",
+      "DNA修复"
+    ]
+  },
+  "CTNNB1": {
+    "pathways": [
+      "Wnt signaling pathway",
+      "Hippo signaling pathway"
+    ],
+    "functions": [
+      "细胞增殖",
+      "侵袭转移"
+    ]
+  },
+  "MYC": {
+    "pathways": [
+      "Cell cycle",
+      "MAPK signaling pathway"
+    ],
+    "functions": [
+      "细胞增殖",
+      "细胞周期"
+    ]
+  },
+  "NRAS": {
+    "pathways": [
+      "Ras signaling pathway",
+      "MAPK signaling pathway",
+      "PI3K-Akt signaling pathway"
+    ],
+    "functions": [
+      "细胞增殖",
+      "分化"
+    ]
+  }
+}

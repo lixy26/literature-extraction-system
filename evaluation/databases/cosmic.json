@@ -1,0 +1,39 @@
+{
+  "PTEN": {
+    "mutation": "true",
+    "mutation_types": [
+      "点突变",
+      "缺失"
+    ],
+    "frequency": "30%"
+  },
+  "TP53": {
+    "mutation": "true",
+    "mutation_types": [
+      "点突变"
+    ],
+    "frequency": "50%"
+  },
+  "CTNNB1": {
+    "mutation": "true",
+    "mutation_types": [
+      "点突变"
+    ],
+    "frequency": "20%"
+  },
+  "NRAS": {
+    "mutation": "true",
+    "mutation_types": [
+      "点突变"
+    ],
+    "frequency": "15%"
+  },
+  "CDKN2A": {
+    "mutation": "true",
+    "mutation_types": [
+      "缺失",
+      "点突变"
+    ],
+    "frequency": "40%"
+  }
+}

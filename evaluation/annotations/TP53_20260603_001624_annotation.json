@@ -1,0 +1,42 @@
+{
+  "gene_name": "TP53",
+  "basic_info": {
+    "gene_function_category": ""
+  },
+  "expression_and_prognosis": {
+    "expression_level": "",
+    "prognosis_os": "",
+    "prognosis_dfs": "",
+    "clinicopathological_correlation": "",
+    "location": ""
+  },
+  "targeted_therapy": {
+    "is_potential_target": "",
+    "known_drugs": [],
+    "drug_resistance": ""
+  },
+  "mutation_and_epigenetics": {
+    "mutation_types": [],
+    "mutation_frequency": ""
+  },
+  "mechanisms_and_models": {
+    "signaling_pathways": [],
+    "cancer_subtype": [],
+    "experimental_model": [],
+    "evidence_level": []
+  },
+  "biological_functions": [],
+  "references": [
+    {
+      "title": "",
+      "year": "",
+      "location": "",
+      "source_pdf": "MGG3-7-e00716.pdf"
+    }
+  ],
+  "sources": [
+    {
+      "pdf_file": "MGG3-7-e00716.pdf"
+    }
+  ]
+}
