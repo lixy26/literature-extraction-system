@@ -56,6 +56,8 @@ class Evaluator:
     
     def load_annotations_by_pdf(self) -> Dict[str, Dict[str, GeneAnnotation]]:
         """加载所有人工标注，按PDF文件分组
+        对于同一篇PDF的同一基因，只保留时间最新的标注
+        支持新旧两种标注格式
         
         返回格式: {
             "main.pdf": {
@@ -63,30 +65,64 @@ class Evaluator:
             }
         }
         """
-        annotations = {}
+        # 临时存储：(pdf_name, gene_name) -> (annotation, file_mtime)
+        temp_storage = {}
+        
         if self.annotation_dir.exists():
             for ann_file in self.annotation_dir.glob("*_annotation.json"):
                 try:
-                    ann = load_annotation_from_json(ann_file)
+                    with open(ann_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
                     
-                    # 从标注中获取源PDF文件
-                    pdf_name = ""
-                    if ann.sources:
-                        pdf_name = ann.sources[0].get("pdf_file", "")
-                    elif ann.references:
-                        pdf_name = ann.references[0].get("source_pdf", "")
+                    file_mtime = ann_file.stat().st_mtime
                     
-                    if not pdf_name:
-                        print(f"警告: 标注文件 {ann_file} 未指定源PDF")
-                        continue
+                    # 判断是哪种格式
+                    # 新格式：有顶层pdf_file和genes数组
+                    if "pdf_file" in data and "genes" in data:
+                        pdf_name = data.get("pdf_file", "")
+                        if not pdf_name:
+                            print(f"警告: 标注文件 {ann_file} 未指定源PDF")
+                            continue
+                        
+                        for gene_data in data.get("genes", []):
+                            ann = GeneAnnotation.from_dict(gene_data)
+                            if ann.gene_name:
+                                key = (pdf_name, ann.gene_name)
+                                if key not in temp_storage or file_mtime > temp_storage[key][1]:
+                                    temp_storage[key] = (ann, file_mtime)
                     
-                    if pdf_name not in annotations:
-                        annotations[pdf_name] = {"pdf_file": pdf_name, "genes": {}}
-                    
-                    if ann.gene_name:
-                        annotations[pdf_name]["genes"][ann.gene_name] = ann
+                    # 旧格式：单基因标注，有sources或references
+                    else:
+                        ann = GeneAnnotation.from_dict(data)
+                        
+                        # 获取源PDF文件
+                        pdf_name = ""
+                        if ann.sources:
+                            pdf_name = ann.sources[0].get("pdf_file", "") if ann.sources else ""
+                        if not pdf_name and ann.references:
+                            pdf_name = ann.references[0].source_pdf if ann.references else ""
+                        if not pdf_name and hasattr(ann, 'pdf_file'):
+                            pdf_name = ann.pdf_file
+                        
+                        if not pdf_name:
+                            print(f"警告: 标注文件 {ann_file} 未指定源PDF")
+                            continue
+                        
+                        if ann.gene_name:
+                            key = (pdf_name, ann.gene_name)
+                            if key not in temp_storage or file_mtime > temp_storage[key][1]:
+                                temp_storage[key] = (ann, file_mtime)
+                                
                 except Exception as e:
                     print(f"加载标注失败 {ann_file}: {e}")
+        
+        # 转换为返回格式
+        annotations = {}
+        for (pdf_name, gene_name), (ann, _) in temp_storage.items():
+            if pdf_name not in annotations:
+                annotations[pdf_name] = {"pdf_file": pdf_name, "genes": {}}
+            annotations[pdf_name]["genes"][gene_name] = ann
+        
         return annotations
     
     def compare_strings(self, pred: str, gold: str) -> Tuple[int, int, int]:
@@ -346,7 +382,7 @@ class Evaluator:
 
 def main():
     parser = argparse.ArgumentParser(description="LLM输出评估工具")
-    parser.add_argument("--output", default="evaluation_report.json", help="输出报告文件名")
+    parser.add_argument("--output", default="evaluation/evaluation_report.json", help="输出报告文件名")
     args = parser.parse_args()
     
     evaluator = Evaluator()
@@ -364,10 +400,12 @@ def main():
     print(f"Hallucination Rate: {report['overall_metrics']['hallucination_rate']}")
     
     # 保存报告
-    with open(args.output, 'w', encoding='utf-8') as f:
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
     
-    print(f"\n报告已保存到: {args.output}")
+    print(f"\n报告已保存到: {output_path.resolve()}")
 
 
 if __name__ == "__main__":
