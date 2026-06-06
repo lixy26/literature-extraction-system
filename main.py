@@ -24,6 +24,76 @@ from utils import save_results, setup_logging, validate_api_key, format_gene_sum
 logger = logging.getLogger(__name__)
 
 
+def process_specific_files(pdf_files):
+    """
+    处理指定的PDF文件列表
+    
+    Args:
+        pdf_files: PDF文件路径列表（Path对象或字符串）
+    """
+    # 初始化日志
+    setup_logging("INFO")
+    
+    logger.info("=" * 60)
+    logger.info("肝癌文献基因信息提取系统启动（指定文件模式）")
+    logger.info("=" * 60)
+    
+    # 检查API密钥
+    from config import API_KEY
+    if not validate_api_key(API_KEY):
+        logger.error("API密钥无效！请在 config.py 中配置有效的API密钥")
+        logger.error("使用前请访问 https://dashscope.aliyuncs.com/ 获取API密钥")
+        return False
+    
+    # 创建处理器
+    processor = LiteratureProcessor()
+    
+    # 转换为Path对象
+    pdf_paths = [Path(f) if not isinstance(f, Path) else f for f in pdf_files]
+    
+    # 批量处理指定的PDF文件
+    logger.info(f"开始处理 {len(pdf_paths)} 个指定的PDF文件")
+    results = processor.batch_process_specific_files(pdf_paths)
+    
+    if not results:
+        logger.warning("未处理任何PDF文件")
+        return False
+    
+    # 按基因名称组织结果
+    logger.info("按基因名称组织提取结果")
+    organized_results = processor.organize_by_gene(results)
+    
+    # 生成输出数据结构
+    output_data = {
+        "metadata": {
+            "total_genes": len(organized_results),
+            "total_pdfs_processed": len(results),
+            "processing_date": datetime.now().strftime("%Y-%m-%d")
+        },
+        "genes": organized_results
+    }
+    
+    # 保存结果
+    output_path = OUTPUT_DIR / "gene_extraction_results.json"
+    save_results(output_data, output_path)
+    
+    # 打印处理摘要
+    logger.info("=" * 60)
+    logger.info("处理完成！")
+    logger.info("=" * 60)
+    logger.info(f"共处理 {len(results)} 个PDF文件")
+    logger.info(f"共提取 {len(organized_results)} 个基因")
+    logger.info(f"结果已保存到: {output_path}")
+    
+    # 打印基因摘要
+    logger.info("\n--- 基因提取摘要 ---")
+    for gene_name, gene_data in organized_results.items():
+        logger.info(format_gene_summary(gene_name, gene_data))
+        logger.info("-" * 40)
+    
+    return True
+
+
 def main():
     """主函数"""
     # 初始化日志

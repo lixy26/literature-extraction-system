@@ -154,8 +154,12 @@ class LiteratureProcessor:
                 "extraction_time": datetime.now().isoformat()
             }
             
-            # 单独保存每个PDF的结果
-            self._save_pdf_result(result)
+            # 如果文献未提及基因，就不生成相应的JSON文件
+            if len(merged_genes) > 0:
+                # 单独保存每个PDF的结果
+                self._save_pdf_result(result)
+            else:
+                logger.info(f"文献 {pdf_path.name} 未提及基因，跳过保存JSON")
             
             return result
             
@@ -230,6 +234,33 @@ class LiteratureProcessor:
         results = []
         
         for pdf_file in pdf_files:
+            result = self.process_single_pdf(pdf_file)
+            results.append(result)
+            logger.info(f"完成处理: {pdf_file.name} | 状态: {result['status']} | 基因数: {result['gene_count']}")
+        
+        return results
+    
+    def batch_process_specific_files(self, pdf_files: List[Path]) -> List[Dict[str, Any]]:
+        """
+        批量处理指定的PDF文件列表
+        
+        Args:
+            pdf_files: PDF文件路径列表
+            
+        Returns:
+            处理结果列表
+        """
+        if not pdf_files:
+            logger.warning("未提供PDF文件")
+            return []
+        
+        logger.info(f"开始批量处理 {len(pdf_files)} 个指定的PDF文件")
+        results = []
+        
+        for pdf_file in pdf_files:
+            if not pdf_file.exists():
+                logger.warning(f"文件不存在: {pdf_file}")
+                continue
             result = self.process_single_pdf(pdf_file)
             results.append(result)
             logger.info(f"完成处理: {pdf_file.name} | 状态: {result['status']} | 基因数: {result['gene_count']}")

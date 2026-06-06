@@ -6,8 +6,8 @@ PROJECT_ROOT = Path(__file__).parent
 
 # API配置
 API_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-API_KEY = "sk-83bc1f24365a41ee8d0b3dff11d9a2b2"  # 用户需要替换为自己的百炼API Key
-MODEL_NAME = "qwen-plus"
+API_KEY = "sk-77fa16e2240f4ce88434f8d936f72213"  # 用户需要替换为自己的百炼API Key
+MODEL_NAME = "deepseek-r1-distill-qwen-32b"
 
 # PDF目录配置
 PDF_DIR = PROJECT_ROOT / "pdfs"
