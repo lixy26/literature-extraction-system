@@ -7,6 +7,7 @@
 import sqlite3
 import subprocess
 import logging
+import json
 from pathlib import Path
 from flask import Flask, render_template, request, jsonify, send_from_directory, redirect, url_for
 from werkzeug.utils import secure_filename
@@ -163,20 +164,65 @@ def load_gene_data():
             mutation_types = []
             frequencies = []
             
+            # 收集所有来源的数据
+            all_types = []
+            all_freqs = []
+            
             for row in cursor.fetchall():
-                # 过滤掉"未提及"、"无"、"暂无"等空值
-                if row['mutation_types'] and row['mutation_types'] not in ['未提及', '无', '暂无']:
-                    # 处理突变类型，可能包含多个类型（分号分隔）
-                    for m_type in str(row['mutation_types']).split(';'):
+                # 收集突变类型
+                if row['mutation_types']:
+                    raw_types = str(row['mutation_types']).split(';')
+                    for m_type in raw_types:
                         m_type = m_type.strip()
-                        if m_type and m_type not in mutation_types:
-                            mutation_types.append(m_type)
-                if row['mutation_frequency'] and row['mutation_frequency'] not in ['未提及', '无', '暂无']:
-                    frequencies.append(row['mutation_frequency'])
+                        if m_type and m_type not in ['未提及', '无', '暂无'] and not m_type.startswith('未提及'):
+                            all_types.append(m_type)
+                # 收集突变频率/rs号
+                if row['mutation_frequency']:
+                    freq = row['mutation_frequency'].strip()
+                    if freq and freq not in ['未提及', '无', '暂无'] and not freq.startswith('未提及'):
+                        all_freqs.append(freq)
+            
+            # 合并rs号信息到突变类型，只保留一个最佳结果
+            best_type = None
+            has_specific_rs = False
+            
+            for m_type in all_types:
+                # 如果已经包含rs号，检查是否是具体的rs号
+                if 'rs' in m_type:
+                    # 如果已经有具体rs号，保留；否则替换为更具体的
+                    if m_type.startswith('点突变(rs') and not m_type.startswith('点突变(rs号'):
+                        best_type = m_type
+                        has_specific_rs = True
+                    elif not has_specific_rs:
+                        best_type = m_type
+                else:
+                    # 没有rs号的类型
+                    if not best_type:
+                        best_type = m_type
+            
+            # 如果有最佳类型，检查是否需要合并rs号
+            if best_type and 'rs' not in best_type:
+                # 尝试找到对应的rs号并合并
+                for freq in all_freqs:
+                    if freq.startswith('rs') and len(freq) <= 15:
+                        # 优先选择具体的rs号，而不是"rs号未在文献中提及"
+                        if not freq.startswith('rs号'):
+                            best_type = f"{best_type}({freq})"
+                            break
+                        elif not has_specific_rs:
+                            best_type = f"{best_type}({freq})"
+            
+            if best_type:
+                mutation_types.append(best_type)
+            
+            # 处理剩余的频率信息（非rs号的）
+            for freq in all_freqs:
+                if not freq.startswith('rs') or len(freq) > 15:
+                    frequencies.append(freq)
             
             gene_info['mutation_and_epigenetics'] = {
-                'mutation_types': '; '.join(mutation_types) if mutation_types else '未提及',
-                'mutation_frequency': '; '.join(frequencies) if frequencies else '未提及'
+                'mutation_types': mutation_types if mutation_types else [],
+                'mutation_frequency': frequencies if frequencies else []
             }
             
             # 获取生物学功能（去重）
@@ -210,7 +256,7 @@ def load_gene_data():
                             subtypes.add(s.strip())
                 if row['experimental_model']:
                     for m in str(row['experimental_model']).split('; '):
-                        if m and m not in ['未提及', '无', '暂无']:
+                        if m and m not in ['未提及', '无', '暂无'] and '未提及' not in m:
                             models.add(m.strip())
                 if row['evidence_level']:
                     for e in str(row['evidence_level']).split('; '):
@@ -378,6 +424,108 @@ def api_genes():
             filtered_genes[gene_name] = gene_info
 
     return jsonify(filtered_genes)
+
+@app.route('/api/gene/<gene_name>/details')
+def api_gene_details(gene_name):
+    """获取特定基因的详细文献信息"""
+    # 从JSON文件读取原始数据
+    pdf_results_dir = Path(__file__).parent / 'output' / 'pdf_results'
+    gene_details = []
+    
+    # 获取该基因在数据库中关联的文档
+    conn = get_db_connection()
+    if not conn:
+        return jsonify({'success': False, 'message': '无法连接数据库'})
+    
+    try:
+        cursor = conn.cursor()
+        # 查询该基因关联的所有文档ID
+        cursor.execute('''
+            SELECT DISTINCT d.id, d.pdf_file
+            FROM documents d
+            JOIN expression_prognosis ep ON d.id = ep.document_id
+            JOIN genes g ON ep.gene_id = g.id
+            WHERE g.gene_name = ?
+            UNION
+            SELECT DISTINCT d.id, d.pdf_file
+            FROM documents d
+            JOIN targeted_therapy tt ON d.id = tt.document_id
+            JOIN genes g ON tt.gene_id = g.id
+            WHERE g.gene_name = ?
+            UNION
+            SELECT DISTINCT d.id, d.pdf_file
+            FROM documents d
+            JOIN mutation_epigenetics me ON d.id = me.document_id
+            JOIN genes g ON me.gene_id = g.id
+            WHERE g.gene_name = ?
+            UNION
+            SELECT DISTINCT d.id, d.pdf_file
+            FROM documents d
+            JOIN mechanisms_and_models mm ON d.id = mm.document_id
+            JOIN genes g ON mm.gene_id = g.id
+            WHERE g.gene_name = ?
+            UNION
+            SELECT DISTINCT d.id, d.pdf_file
+            FROM documents d
+            JOIN biological_functions bf ON d.id = bf.document_id
+            JOIN genes g ON bf.gene_id = g.id
+            WHERE g.gene_name = ?
+        ''', (gene_name, gene_name, gene_name, gene_name, gene_name))
+        
+        documents = cursor.fetchall()
+        
+        for doc in documents:
+            doc_id = doc['id']
+            pdf_file = doc['pdf_file']
+            
+            # 查找对应的JSON文件
+            json_file = None
+            if pdf_file:
+                # 从pdf文件名构建json文件名（去掉.pdf后缀）
+                json_name = pdf_file.replace('.pdf', '') + '_result.json'
+                json_file = pdf_results_dir / json_name
+            
+            if json_file and json_file.exists():
+                try:
+                    with open(json_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                        # 在genes列表中查找该基因
+                        for gene in data.get('genes', []):
+                            if gene.get('gene_name') == gene_name:
+                                ref = gene.get('reference', {})
+                                gene_details.append({
+                                    'document_id': doc_id,
+                                    'pdf_file': pdf_file,
+                                    'title': ref.get('title', '') if isinstance(ref, dict) else '',
+                                    'authors': gene.get('authors', ''),
+                                    'year': str(ref.get('year', '')) if isinstance(ref, dict) else '',
+                                    'gene_data': gene
+                                })
+                                break
+                except Exception as e:
+                    logger.error(f"读取JSON文件失败: {json_file}, 错误: {e}")
+            else:
+                # 如果找不到JSON文件，返回基本信息
+                gene_details.append({
+                    'document_id': doc_id,
+                    'pdf_file': pdf_file,
+                    'title': '',
+                    'authors': '',
+                    'year': '',
+                    'gene_data': None
+                })
+        
+        conn.close()
+        return jsonify({
+            'success': True,
+            'gene_name': gene_name,
+            'documents': gene_details
+        })
+        
+    except Exception as e:
+        logger.error(f"获取基因详情失败: {e}")
+        conn.close()
+        return jsonify({'success': False, 'message': str(e)})
 
 @app.route('/api/upload', methods=['POST'])
 def upload_files():
