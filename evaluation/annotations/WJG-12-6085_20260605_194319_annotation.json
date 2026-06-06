@@ -1,0 +1,578 @@
+{
+  "pdf_file": "WJG-12-6085.pdf",
+  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\WJG-12-6085.pdf",
+  "gene_count": 12,
+  "genes": [
+    {
+      "gene_name": "TP53",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "当细胞缺失功能性 p53 时，遭遇 DNA 损伤后既无法阻滞细胞周期，也不能启动细胞凋亡。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [
+          "Gendicine"
+        ],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "rs号未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "p53 pathway"
+        ],
+        "cancer_subtype": [
+          "HBV相关"
+        ],
+        "experimental_model": [
+          "动物模型",
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究",
+          "动物实验"
+        ]
+      },
+      "biological_functions": [
+        "凋亡",
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6086;p.6091",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "SOCS1",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "其 promoter 频繁被甲基化导致 JAK/STAT 通路激活"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "甲基化"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "JAK/STAT"
+        ],
+        "cancer_subtype": [
+          "HBV相关"
+        ],
+        "experimental_model": [
+          "细胞系"
+        ],
+        "evidence_level": [
+          "细胞实验"
+        ]
+      },
+      "biological_functions": [
+        "凋亡"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6086",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "PTTG1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "抑制癌基因的表达有望不仅能够降低细胞增殖活性，还可恢复细胞对凋亡诱导信号的敏感性。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "细胞系",
+          "动物模型"
+        ],
+        "evidence_level": [
+          "细胞实验",
+          "动物实验"
+        ]
+      },
+      "biological_functions": [],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "TERT",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "除了保护端粒外，端粒酶还能够保护染色体末端，避免其被机体识别为 DNA 断裂损伤"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "未提及"
+        ],
+        "evidence_level": [
+          "未提及"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "TRAIL",
+      "basic_info": {
+        "gene_function_category": "双向功能基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "诱导癌细胞凋亡，对正常肝细胞毒性较低"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [
+          "未提及"
+        ],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "TNF-related apoptosis pathway"
+        ],
+        "cancer_subtype": [
+          "HBV相关"
+        ],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "biological_functions": [
+        "凋亡"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6088",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "KRAS",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "抑制原癌基因 Ras，除阻断一连串有丝分裂相关信号外，还能解除对 p53 通路的抑制，促使细胞趋向凋亡"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": ""
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "未提及"
+        ],
+        "evidence_level": [
+          "未提及"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "HRAS",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "抑制原癌基因 Ras，除阻断一连串有丝分裂相关信号外，还能解除对 p53 通路的抑制，促使细胞趋向凋亡"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": ""
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "未提及"
+        ],
+        "evidence_level": [
+          "未提及"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "NRAS",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "抑制原癌基因 Ras，除阻断一连串有丝分裂相关信号外，还能解除对 p53 通路的抑制，促使细胞趋向凋亡"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": ""
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "未提及"
+        ],
+        "evidence_level": [
+          "未提及"
+        ]
+      },
+      "biological_functions": [
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "FGF2",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": ""
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": ""
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "未提及"
+        ],
+        "evidence_level": [
+          "未提及"
+        ]
+      },
+      "biological_functions": [
+        "未提及"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "VEGF",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": ""
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": ""
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": ""
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [],
+        "cancer_subtype": [],
+        "experimental_model": [],
+        "evidence_level": []
+      },
+      "biological_functions": [],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "COX-2",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": ""
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": ""
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": ""
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [],
+        "cancer_subtype": [],
+        "experimental_model": [],
+        "evidence_level": []
+      },
+      "biological_functions": [],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    },
+    {
+      "gene_name": "p28-GANK",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "促进 pRB 抑癌蛋白过度磷酸化并加速其降解"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "未提及"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "未提及"
+        ],
+        "cancer_subtype": [
+          "未提及"
+        ],
+        "experimental_model": [
+          "动物模型（裸鼠）"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "biological_functions": [
+        "磷酸化"
+      ],
+      "reference": {
+        "title": "Gene therapy of liver cancer",
+        "year": "2006",
+        "location": "p.6087",
+        "pdf_file": "WJG-12-6085.pdf"
+      },
+      "source_pdf": "WJG-12-6085.pdf"
+    }
+  ]
+}
