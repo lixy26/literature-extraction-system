@@ -574,6 +574,97 @@
             color: #888;
             font-size: 0.9rem;
         }
+
+        /* 文献详情展开功能样式 */
+        .expand-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #1a5276 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .expand-btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .expand-btn.loading::after {
+            content: '加载中...';
+        }
+
+        .literature-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #e0e0e0;
+            display: none;
+        }
+
+        .literature-details.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .literature-details h4 {
+            color: #1a5276;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .literature-item {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .literature-item .doc-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .literature-item .doc-meta {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .literature-item .detail-section {
+            margin-bottom: 12px;
+        }
+
+        .literature-item .detail-label {
+            font-weight: 600;
+            color: #34495e;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .literature-item .detail-value {
+            color: #555;
+            font-size: 0.9rem;
+            padding-left: 10px;
+        }
+
+        .loading-indicator {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
     </style>
 </head>
 <body>
@@ -1003,11 +1094,151 @@
                                 <div class="value" style="font-size: 0.9em;">${refSource}</div>
                             </div>
                         </div>
+                        <button class="expand-btn" onclick="toggleLiteratureDetails('${displayName}', this)">
+                            查看文献详情
+                        </button>
+                        <div class="literature-details" id="details-${displayName}"></div>
                     </div>
                 `;
             }
 
             container.innerHTML = html;
+        }
+
+        // 切换文献详情显示
+        async function toggleLiteratureDetails(geneName, btnElement) {
+            const detailsDiv = document.getElementById(`details-${geneName}`);
+            
+            if (detailsDiv.classList.contains('show')) {
+                detailsDiv.classList.remove('show');
+                btnElement.textContent = '查看文献详情';
+                return;
+            }
+            
+            // 显示加载状态
+            detailsDiv.classList.add('show');
+            btnElement.classList.add('loading');
+            btnElement.textContent = '';
+            detailsDiv.innerHTML = '<div class="loading-indicator">正在加载文献详情...</div>';
+            
+            try {
+                const response = await fetch(`/api/gene/${encodeURIComponent(geneName)}/details`);
+                const data = await response.json();
+                
+                if (data.success && data.documents && data.documents.length > 0) {
+                    let html = '<h4>各文献中的详细信息 / Details from Each Literature</h4>';
+                    
+                    data.documents.forEach((doc, index) => {
+                        html += `
+                            <div class="literature-item">
+                                <div class="doc-title">${index + 1}. ${doc.title || '未提供标题'}</div>
+                                <div class="doc-meta">
+                                    ${doc.authors ? '作者: ' + doc.authors.substring(0, 100) + (doc.authors.length > 100 ? '...' : '') : ''}
+                                    ${doc.year ? ' | 年份: ' + doc.year : ''}
+                                </div>
+                                ${doc.gene_data ? formatGeneDataFromJSON(doc.gene_data) : '<div class="detail-value">原始数据不可用</div>'}
+                            </div>
+                        `;
+                    });
+                    
+                    detailsDiv.innerHTML = html;
+                } else {
+                    detailsDiv.innerHTML = '<div class="loading-indicator">未找到相关文献详情</div>';
+                }
+            } catch (error) {
+                console.error('加载文献详情失败:', error);
+                detailsDiv.innerHTML = '<div class="loading-indicator">加载失败，请重试</div>';
+            } finally {
+                btnElement.classList.remove('loading');
+                btnElement.textContent = '收起文献详情';
+            }
+        }
+        
+        // 格式化从JSON读取的基因数据
+        function formatGeneDataFromJSON(geneData) {
+            let html = '';
+            
+            // 表达与预后
+            const expProg = geneData.expression_and_prognosis;
+            if (expProg) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">表达与预后 / Expression & Prognosis</div>';
+                if (expProg.expression_level) html += `<div class="detail-value">表达水平: ${expProg.expression_level}</div>`;
+                if (expProg.prognosis_correlation) {
+                    const pc = expProg.prognosis_correlation;
+                    if (pc.OS) html += `<div class="detail-value">OS相关性: ${pc.OS}</div>`;
+                    if (pc.DFS) html += `<div class="detail-value">DFS相关性: ${pc.DFS}</div>`;
+                }
+                if (expProg.clinicopathological_correlation) {
+                    html += `<div class="detail-value">临床病理相关性: ${expProg.clinicopathological_correlation}</div>`;
+                }
+                html += '</div>';
+            }
+            
+            // 靶向治疗
+            const therapy = geneData.targeted_therapy;
+            if (therapy) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">靶向治疗 / Targeted Therapy</div>';
+                if (therapy.potential_target) html += `<div class="detail-value">潜在靶点: ${therapy.potential_target}</div>`;
+                if (therapy.known_drugs) {
+                    const drugs = Array.isArray(therapy.known_drugs) ? therapy.known_drugs.join(', ') : therapy.known_drugs;
+                    html += `<div class="detail-value">已知药物: ${drugs}</div>`;
+                }
+                if (therapy.drug_resistance) html += `<div class="detail-value">耐药性: ${therapy.drug_resistance}</div>`;
+                html += '</div>';
+            }
+            
+            // 突变与表观遗传
+            const mutEpi = geneData.mutation_and_epigenetics;
+            if (mutEpi) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">突变与表观遗传 / Mutation & Epigenetics</div>';
+                if (mutEpi.mutation_types) {
+                    const types = Array.isArray(mutEpi.mutation_types) ? mutEpi.mutation_types.join(', ') : mutEpi.mutation_types;
+                    html += `<div class="detail-value">突变类型: ${types}</div>`;
+                }
+                if (mutEpi.mutation_frequency) html += `<div class="detail-value">突变频率: ${mutEpi.mutation_frequency}</div>`;
+                html += '</div>';
+            }
+            
+            // 机制与模型
+            const mechMod = geneData.mechanisms_and_models;
+            if (mechMod) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">机制与实验模型 / Mechanisms & Models</div>';
+                if (mechMod.signaling_pathways) {
+                    const pathways = Array.isArray(mechMod.signaling_pathways) ? mechMod.signaling_pathways.join(', ') : mechMod.signaling_pathways;
+                    html += `<div class="detail-value">信号通路: ${pathways}</div>`;
+                }
+                if (mechMod.cancer_subtype) {
+                    const subtypes = Array.isArray(mechMod.cancer_subtype) ? mechMod.cancer_subtype.join(', ') : mechMod.cancer_subtype;
+                    html += `<div class="detail-value">肝癌亚型: ${subtypes}</div>`;
+                }
+                if (mechMod.experimental_model) {
+                    const models = Array.isArray(mechMod.experimental_model) ? mechMod.experimental_model.join(', ') : mechMod.experimental_model;
+                    html += `<div class="detail-value">实验模型: ${models}</div>`;
+                }
+                html += '</div>';
+            }
+            
+            // 生物学功能
+            const bioFunc = geneData.biological_functions || geneData.functions;
+            if (bioFunc) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">生物学功能 / Biological Functions</div>';
+                const funcs = Array.isArray(bioFunc) ? bioFunc : [bioFunc];
+                funcs.forEach(f => {
+                    if (typeof f === 'string') {
+                        html += `<div class="detail-value">• ${f}</div>`;
+                    } else if (f.function_name) {
+                        html += `<div class="detail-value">• ${f.function_name}</div>`;
+                    }
+                });
+                html += '</div>';
+            }
+            
+            return html || '<div class="detail-value">无详细信息</div>';
         }
 
         document.addEventListener('DOMContentLoaded', function() {
