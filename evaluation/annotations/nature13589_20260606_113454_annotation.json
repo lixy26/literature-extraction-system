@@ -1,0 +1,151 @@
+{
+  "pdf_file": "nature13589.pdf",
+  "pdf_path": "e:\\大三下\\生物信息实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\nature13589.pdf",
+  "gene_count": 3,
+  "genes": [
+    {
+      "gene_name": "PTEN",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "PTEN缺失导致肝细胞脂质蓄积、Akt磷酸化升高，与肝细胞癌发生相关"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "是",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "缺失",
+          "点突变"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "PI3K/Akt通路"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "动物模型",
+          "细胞系"
+        ],
+        "evidence_level": [
+          "动物实验",
+          "细胞实验"
+        ]
+      },
+      "biological_functions": [
+        "抑制 Akt 磷酸化"
+      ],
+      "reference": {
+        "title": "CRISPR-mediated direct mutation of cancer genes in the mouse liver",
+        "year": "2014",
+        "location": "Fig.1c-d;Fig.2a;Fig.3b",
+        "pdf_file": "nature13589.pdf"
+      },
+      "source_pdf": "nature13589.pdf"
+    },
+    {
+      "gene_name": "TP53",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "低表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "TP53与PTEN共缺失可诱导小鼠肝癌形成，肿瘤具有胆管分化特征"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "缺失",
+          "点突变"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "biological_functions": [
+        "广谱抑癌"
+      ],
+      "reference": {
+        "title": "CRISPR-mediated direct mutation of cancer genes in the mouse liver",
+        "year": "2014",
+        "location": "Fig.3b-c;Fig.3d;ExtendedDataFig.8b",
+        "pdf_file": "nature13589.pdf"
+      },
+      "source_pdf": "nature13589.pdf"
+    },
+    {
+      "gene_name": "CTNNB1",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "CTNNB1激活突变导致β-catenin核定位、谷氨酰胺合成酶表达升高，促进肝癌发生"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": "未提及"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "Wnt/β-catenin通路"
+        ],
+        "cancer_subtype": [],
+        "experimental_model": [
+          "动物模型"
+        ],
+        "evidence_level": [
+          "动物实验"
+        ]
+      },
+      "biological_functions": [
+        "转录调控",
+        "细胞黏附"
+      ],
+      "reference": {
+        "title": "CRISPR-mediated direct mutation of cancer genes in the mouse liver",
+        "year": "2014",
+        "location": "Fig.4a-e;ExtendedDataFig.10b",
+        "pdf_file": "nature13589.pdf"
+      },
+      "source_pdf": "nature13589.pdf"
+    }
+  ]
+}

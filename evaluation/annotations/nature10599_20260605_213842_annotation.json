@@ -1,0 +1,59 @@
+{
+  "pdf_file": "nature10599.pdf",
+  "pdf_path": "e:\\大三下\\生物信息实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\nature10599.pdf",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "NRAS",
+      "basic_info": {
+        "gene_function_category": "原癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "高表达",
+        "prognosis_correlation": {
+          "OS": "",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "NrasG12V突变诱导肝细胞衰老，其逃逸与肝细胞癌发生直接相关；在免疫缺陷小鼠中NrasG12V表达导致HCC快速发生"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "未提及"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [
+          "点突变"
+        ],
+        "mutation_frequency": ""
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "MAPK"
+        ],
+        "cancer_subtype": [
+          "HCV相关"
+        ],
+        "experimental_model": [
+          "动物模型",
+          "细胞系；人体样本"
+        ],
+        "evidence_level": [
+          "动物实验",
+          "细胞实验；临床研究"
+        ]
+      },
+      "biological_functions": [
+        "调控细胞增殖",
+        "分子开关（GTP/GDP 循环）",
+      ],
+      "reference": {
+        "title": "Senescence surveillance of pre-malignant hepatocytes limits liver cancer development",
+        "year": "2011",
+        "location": "Fig.1;Fig.2i;Fig.3f;Supplementary Fig. 28a-b",
+        "pdf_file": "nature10599.pdf"
+      },
+      "source_pdf": "nature10599.pdf"
+    }
+  ]
+}
