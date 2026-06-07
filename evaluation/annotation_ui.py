@@ -200,5 +200,24 @@ def delete_annotation(filename):
     except Exception as e:
         return jsonify({"success": False, "message": str(e)})
 
+@app.route('/report')
+def view_report():
+    """评估报告查看页面"""
+    report_path = Path(__file__).parent / "evaluation_report.json"
+    if report_path.exists():
+        with open(report_path, 'r', encoding='utf-8') as f:
+            report_data = json.load(f)
+        return render_template('report_viewer.html', report=report_data)
+    else:
+        return "评估报告不存在，请先运行评估程序生成报告"
+
+@app.route('/api/evaluation_report')
+def get_evaluation_report():
+    """获取评估报告JSON"""
+    report_path = Path(__file__).parent / "evaluation_report.json"
+    if report_path.exists():
+        return send_from_directory(report_path.parent, "evaluation_report.json")
+    return jsonify({"error": "评估报告不存在"})
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)

@@ -10,15 +10,17 @@
 ```
 evaluation/
 ├── schema.py              # 数据结构定义（与LLM输出一致）
-├── annotation_ui.py       # 人工标注Web界面
+├── annotation_ui.py       # 人工标注Web界面 + 报告查看服务
 ├── templates/
-│   └── index.html         # 标注界面前端
+│   ├── index.html         # 标注界面前端
+│   └── report_viewer.html # 评估报告可视化界面
 ├── evaluate.py            # 人工标注与LLM输出对比脚本
 ├── database_validation.py # 数据库对比验证脚本
 ├── databases/             # 权威数据库文件
 │   ├── kegg.json          # KEGG通路数据库
 │   └── cosmic.json        # COSMIC突变数据库
-└── annotations/           # 人工标注文件存储目录
+├── annotations/           # 人工标注文件存储目录
+└── evaluation_report.json # 评估报告（运行评估后生成）
 ```
 
 ## 一、人工标注评估
@@ -43,8 +45,24 @@ python annotation_ui.py
 ### 3. 运行评估对比
 
 ```bash
-python evaluate.py --output evaluation_report.json
+python evaluate.py --output evaluation/evaluation_report.json
 ```
+
+**注意**：请在 `literature_extraction_system` 目录下运行此命令，确保报告保存到正确位置。
+
+### 4. 查看可视化报告
+
+启动服务后访问：
+
+```
+http://localhost:5001/report
+```
+
+可视化报告功能：
+- **总体摘要**：展示精确率、召回率、F1分数、幻觉率等核心指标
+- **PDF详情切换**：点击不同PDF标签页查看各文献的评估结果
+- **基因对比**：直观展示共有基因、仅LLM提取、仅人工标注的基因列表
+- **字段级详情**：查看每个字段的TP/FP/FN分布，了解具体错误类型
 
 ### 评估指标说明
 
@@ -54,6 +72,11 @@ python evaluate.py --output evaluation_report.json
 | Recall | 召回率：模型覆盖的真实信息比例 |
 | F1 Score | 综合指标：2 * P * R / (P + R) |
 | Hallucination Rate | 幻觉率：预测错误的比例 |
+
+**TP/FP/FN 含义**：
+- **TP (True Positive)**：正确识别 - LLM和人工标注都有且一致
+- **FP (False Positive)**：幻觉 - LLM有但人工标注无，或内容不一致
+- **FN (False Negative)**：遗漏 - 人工标注有但LLM无
 
 ## 二、数据库对比验证
 

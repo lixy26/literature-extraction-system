@@ -1,40 +1,2226 @@
 {
   "summary": {
     "llm_pdf_count": 10,
-    "annotation_pdf_count": 1,
-    "matched_pdf_count": 1
+    "annotation_pdf_count": 10,
+    "matched_pdf_count": 10
   },
   "pdf_reports": {
+    "ijms-27-04425-v2.pdf": {
+      "pdf_file": "ijms-27-04425-v2.pdf",
+      "llm_gene_count": 4,
+      "annotation_gene_count": 3,
+      "common_genes": [
+        "SAC3D1",
+        "BOP1",
+        "PDE2A"
+      ],
+      "llm_only_genes": [
+        "TP53"
+      ],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "SAC3D1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              0,
+              0,
+              1
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              0,
+              2,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              4,
+              0
+            ],
+            "experimental_model": [
+              1,
+              1,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            2,
+            1
+          ]
+        },
+        "BOP1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              0,
+              0,
+              1
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              4,
+              0
+            ],
+            "experimental_model": [
+              1,
+              1,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            2,
+            2
+          ]
+        },
+        "PDE2A": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              0,
+              0,
+              1
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              2,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              4,
+              0
+            ],
+            "experimental_model": [
+              1,
+              1,
+              0
+            ]
+          },
+          "biological_functions": [
+            2,
+            1,
+            1
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.5254,
+        "recall": 0.7561,
+        "f1": 0.62,
+        "hallucination_rate": 0.4746,
+        "total_tp": 31,
+        "total_fp": 28,
+        "total_fn": 10
+      }
+    },
+    "lic-2025-0014-0001-540180.pdf": {
+      "pdf_file": "lic-2025-0014-0001-540180.pdf",
+      "llm_gene_count": 1,
+      "annotation_gene_count": 1,
+      "common_genes": [
+        "TIGAR"
+      ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "TIGAR": {
+          "basic_info": {
+            "gene_function_category": [
+              0,
+              1,
+              1
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              0,
+              1,
+              1
+            ],
+            "known_drugs": [
+              0,
+              3,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              3,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              2,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            4,
+            1,
+            1
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.5833,
+        "recall": 0.8235,
+        "f1": 0.6829,
+        "hallucination_rate": 0.4167,
+        "total_tp": 14,
+        "total_fp": 10,
+        "total_fn": 3
+      }
+    },
+    "lic-2025-0014-0004-543217.pdf": {
+      "pdf_file": "lic-2025-0014-0004-543217.pdf",
+      "llm_gene_count": 1,
+      "annotation_gene_count": 1,
+      "common_genes": [
+        "CTNNB1"
+      ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "CTNNB1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              0,
+              1,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              0,
+              1,
+              1
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              5,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            1,
+            0
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.5789,
+        "recall": 0.9167,
+        "f1": 0.7097,
+        "hallucination_rate": 0.4211,
+        "total_tp": 11,
+        "total_fp": 8,
+        "total_fn": 1
+      }
+    },
+    "main.pdf": {
+      "pdf_file": "main.pdf",
+      "llm_gene_count": 3,
+      "annotation_gene_count": 3,
+      "common_genes": [
+        "INSR",
+        "IGF1R",
+        "PTEN"
+      ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "INSR": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              2,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            2,
+            1,
+            0
+          ]
+        },
+        "IGF1R": {
+          "basic_info": {
+            "gene_function_category": [
+              0,
+              1,
+              1
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              0,
+              0,
+              1
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              2,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            2,
+            1,
+            1
+          ]
+        },
+        "PTEN": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              0,
+              1,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              0,
+              1,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              2,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              1,
+              1,
+              0
+            ]
+          },
+          "biological_functions": [
+            2,
+            3,
+            0
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.7273,
+        "recall": 0.8889,
+        "f1": 0.8,
+        "hallucination_rate": 0.2727,
+        "total_tp": 40,
+        "total_fp": 15,
+        "total_fn": 5
+      }
+    },
     "MGG3-7-e00716.pdf": {
       "pdf_file": "MGG3-7-e00716.pdf",
       "llm_gene_count": 1,
       "annotation_gene_count": 1,
-      "common_genes": [],
-      "llm_only_genes": [
+      "common_genes": [
         "ACYP2"
       ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "ACYP2": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              2,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            1,
+            0
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.6875,
+        "recall": 0.9167,
+        "f1": 0.7857,
+        "hallucination_rate": 0.3125,
+        "total_tp": 11,
+        "total_fp": 5,
+        "total_fn": 1
+      }
+    },
+    "nature10599.pdf": {
+      "pdf_file": "nature10599.pdf",
+      "llm_gene_count": 1,
+      "annotation_gene_count": 1,
+      "common_genes": [
+        "NRAS"
+      ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "NRAS": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              0,
+              1,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              1,
+              0
+            ],
+            "experimental_model": [
+              1,
+              1,
+              1
+            ]
+          },
+          "biological_functions": [
+            0,
+            3,
+            2
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.5556,
+        "recall": 0.7692,
+        "f1": 0.6452,
+        "hallucination_rate": 0.4444,
+        "total_tp": 10,
+        "total_fp": 8,
+        "total_fn": 3
+      }
+    },
+    "nature13589.pdf": {
+      "pdf_file": "nature13589.pdf",
+      "llm_gene_count": 3,
+      "annotation_gene_count": 3,
+      "common_genes": [
+        "PTEN",
+        "TP53",
+        "CTNNB1"
+      ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "PTEN": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              2,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              1,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            0,
+            3,
+            1
+          ]
+        },
+        "TP53": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              0,
+              1,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              2,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              1,
+              0
+            ],
+            "experimental_model": [
+              1,
+              1,
+              0
+            ]
+          },
+          "biological_functions": [
+            0,
+            3,
+            1
+          ]
+        },
+        "CTNNB1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              0,
+              1,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              1,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            0,
+            2,
+            2
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.7255,
+        "recall": 0.9024,
+        "f1": 0.8043,
+        "hallucination_rate": 0.2745,
+        "total_tp": 37,
+        "total_fp": 14,
+        "total_fn": 4
+      }
+    },
+    "nihms-2143397.pdf": {
+      "pdf_file": "nihms-2143397.pdf",
+      "llm_gene_count": 1,
+      "annotation_gene_count": 1,
+      "common_genes": [
+        "NRAS"
+      ],
+      "llm_only_genes": [],
+      "annotation_only_genes": [],
+      "gene_results": {
+        "NRAS": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              0,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              0,
+              1,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            0,
+            2,
+            1
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.7857,
+        "recall": 0.8462,
+        "f1": 0.8148,
+        "hallucination_rate": 0.2143,
+        "total_tp": 11,
+        "total_fp": 3,
+        "total_fn": 2
+      }
+    },
+    "s41586-025-08585-z.pdf": {
+      "pdf_file": "s41586-025-08585-z.pdf",
+      "llm_gene_count": 5,
+      "annotation_gene_count": 10,
+      "common_genes": [
+        "MYC",
+        "TP53",
+        "PTEN",
+        "CDKN2A",
+        "CTNNB1"
+      ],
+      "llm_only_genes": [],
       "annotation_only_genes": [
+        "NOTCH1",
+        "KRAS",
+        "CDKN1A",
+        "AXIN1",
+        "BAP1"
+      ],
+      "gene_results": {
+        "MYC": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              4,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              2,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              1
+            ]
+          },
+          "biological_functions": [
+            2,
+            0,
+            0
+          ]
+        },
+        "TP53": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              1
+            ],
+            "mutation_frequency": [
+              0,
+              1,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              2,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              2
+            ]
+          },
+          "biological_functions": [
+            3,
+            0,
+            0
+          ]
+        },
+        "PTEN": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              0,
+              1,
+              1
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              2,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              1
+            ]
+          },
+          "biological_functions": [
+            1,
+            1,
+            0
+          ]
+        },
+        "CDKN2A": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              2,
+              0,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              2
+            ]
+          },
+          "biological_functions": [
+            1,
+            1,
+            0
+          ]
+        },
+        "CTNNB1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              0,
+              1,
+              0
+            ],
+            "prognosis_dfs": [
+              0,
+              1,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              0,
+              2,
+              1
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              2,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              1
+            ]
+          },
+          "biological_functions": [
+            3,
+            0,
+            0
+          ]
+        }
+      },
+      "metrics": {
+        "precision": 0.7011,
+        "recall": 0.8356,
+        "f1": 0.7625,
+        "hallucination_rate": 0.2989,
+        "total_tp": 61,
+        "total_fp": 26,
+        "total_fn": 12
+      }
+    },
+    "WJG-12-6085.pdf": {
+      "pdf_file": "WJG-12-6085.pdf",
+      "llm_gene_count": 5,
+      "annotation_gene_count": 12,
+      "common_genes": [
+        "PTTG1",
+        "SOCS1",
+        "TERT",
+        "TRAIL",
         "TP53"
       ],
-      "gene_results": {},
+      "llm_only_genes": [],
+      "annotation_only_genes": [
+        "COX-2",
+        "FGF2",
+        "NRAS",
+        "KRAS",
+        "p28-GANK",
+        "VEGF",
+        "HRAS"
+      ],
+      "gene_results": {
+        "PTTG1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              0,
+              0,
+              1
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              0,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              0,
+              1,
+              1
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            0,
+            1,
+            0
+          ]
+        },
+        "SOCS1": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            0,
+            0
+          ]
+        },
+        "TERT": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              1,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              0,
+              1,
+              0
+            ],
+            "experimental_model": [
+              0,
+              1,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            0,
+            0
+          ]
+        },
+        "TRAIL": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              1,
+              0,
+              0
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              0,
+              0,
+              1
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              1,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            1,
+            0,
+            0
+          ]
+        },
+        "TP53": {
+          "basic_info": {
+            "gene_function_category": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expression_and_prognosis": {
+            "expression_level": [
+              0,
+              0,
+              1
+            ],
+            "prognosis_os": [
+              1,
+              0,
+              0
+            ],
+            "prognosis_dfs": [
+              1,
+              0,
+              0
+            ],
+            "clinicopathological_correlation": [
+              0,
+              0,
+              1
+            ]
+          },
+          "targeted_therapy": {
+            "is_potential_target": [
+              1,
+              0,
+              0
+            ],
+            "known_drugs": [
+              1,
+              0,
+              0
+            ],
+            "drug_resistance": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mutation_and_epigenetics": {
+            "mutation_types": [
+              1,
+              0,
+              0
+            ],
+            "mutation_frequency": [
+              1,
+              0,
+              0
+            ]
+          },
+          "mechanisms_and_models": {
+            "signaling_pathways": [
+              1,
+              0,
+              0
+            ],
+            "cancer_subtype": [
+              1,
+              0,
+              0
+            ],
+            "experimental_model": [
+              2,
+              0,
+              0
+            ]
+          },
+          "biological_functions": [
+            2,
+            0,
+            0
+          ]
+        }
+      },
       "metrics": {
-        "precision": 0,
-        "recall": 0,
-        "f1": 0,
-        "hallucination_rate": 0,
-        "total_tp": 0,
-        "total_fp": 0,
-        "total_fn": 0
+        "precision": 0.9265,
+        "recall": 0.9,
+        "f1": 0.913,
+        "hallucination_rate": 0.0735,
+        "total_tp": 63,
+        "total_fp": 5,
+        "total_fn": 7
       }
     }
   },
   "overall_metrics": {
-    "precision": 0,
-    "recall": 0,
-    "f1": 0,
-    "hallucination_rate": 0,
-    "total_tp": 0,
-    "total_fp": 0,
-    "total_fn": 0
+    "precision": 0.7032,
+    "recall": 0.8576,
+    "f1": 0.7727,
+    "hallucination_rate": 0.2968,
+    "total_tp": 289,
+    "total_fp": 122,
+    "total_fn": 48
   }
 }

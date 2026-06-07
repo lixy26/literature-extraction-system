@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评估报告详情</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .summary-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .summary-card.metric-card {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .summary-card.hallucination {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+        
+        .summary-card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .summary-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .pdf-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .pdf-tab {
+            padding: 12px 24px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .pdf-tab:hover {
+            background: #e0e0e0;
+        }
+        
+        .pdf-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        
+        .pdf-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .pdf-title {
+            font-size: 1.3rem;
+            color: #333;
+        }
+        
+        .pdf-metrics {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pdf-metric {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .pdf-metric.precision {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .pdf-metric.recall {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .pdf-metric.f1 {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .pdf-metric.hallucination {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .gene-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .gene-box {
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .gene-box.common {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .gene-box.llm-only {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .gene-box.annotation-only {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .gene-box-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .gene-box-content {
+            color: #666;
+        }
+        
+        .gene-detail {
+            margin-top: 25px;
+        }
+        
+        .gene-detail-title {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .gene-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .gene-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: box-shadow 0.3s;
+        }
+        
+        .gene-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gene-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .gene-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .gene-score {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .gene-score.good {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .gene-score.medium {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .gene-score.bad {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .field-list {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .field-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 10px;
+            align-items: start;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .field-name {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .field-values {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .field-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .field-badge.tp {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .field-badge.fp {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .field-badge.fn {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 50px;
+        }
+        
+        .error {
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            padding: 50px;
+            background: #fff;
+            border-radius: 16px;
+        }
+        
+        .no-data {
+            text-align: center;
+            color: #999;
+            padding: 30px;
+        }
+        
+        .tp { color: #2e7d32; }
+        .fp { color: #c62828; }
+        .fn { color: #1565c0; }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+        
+        .legend-color.tp { background: #2e7d32; }
+        .legend-color.fp { background: #c62828; }
+        .legend-color.fn { background: #1565c0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 LLM输出评估报告</h1>
+        
+        <div id="content">
+            <div class="loading">正在加载报告...</div>
+        </div>
+    </div>
+    
+    <script>
+        // 字段中文名称映射
+        const fieldNames = {
+            'basic_info': '基本信息',
+            'gene_function_category': '基因功能分类',
+            'expression_and_prognosis': '表达与预后',
+            'expression_level': '表达水平',
+            'prognosis_os': '总生存期(OS)',
+            'prognosis_dfs': '无病生存期(DFS)',
+            'clinicopathological_correlation': '临床病理相关性',
+            'targeted_therapy': '靶向治疗',
+            'is_potential_target': '是否潜在靶点',
+            'known_drugs': '已知药物',
+            'drug_resistance': '耐药性',
+            'mutation_and_epigenetics': '突变与表观遗传',
+            'mutation_types': '突变类型',
+            'mutation_frequency': '突变频率',
+            'mechanisms_and_models': '机制与模型',
+            'signaling_pathways': '信号通路',
+            'cancer_subtype': '癌症亚型',
+            'experimental_model': '实验模型',
+            'evidence_level': '证据等级',
+            'biological_functions': '生物学功能'
+        };
+        
+        async function loadReport() {
+            try {
+                const response = await fetch('/api/evaluation_report');
+                if (!response.ok) {
+                    throw new Error('无法加载报告文件');
+                }
+                const report = await response.json();
+                renderReport(report);
+            } catch (error) {
+                document.getElementById('content').innerHTML = `
+                    <div class="error">
+                        加载报告失败: ${error.message}<br>
+                        请确保：<br>
+                        1. 先运行评估程序生成报告 (python evaluation/evaluate.py)<br>
+                        2. 启动Flask服务 (python evaluation/annotation_ui.py)<br>
+                        3. 然后访问 <a href="/report">/report</a>
+                    </div>
+                `;
+            }
+        }
+        
+        function renderReport(report) {
+            const summary = report.summary;
+            const overall = report.overall_metrics;
+            const pdfReports = report.pdf_reports;
+            
+            // 生成PDF列表
+            const pdfList = Object.keys(pdfReports);
+            
+            let html = `
+                <div class="summary-section">
+                    <div class="summary-title">📈 总体摘要</div>
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="value">${summary.llm_pdf_count}</div>
+                            <div class="label">LLM输出PDF数</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="value">${summary.annotation_pdf_count}</div>
+                            <div class="label">人工标注PDF数</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="value">${summary.matched_pdf_count}</div>
+                            <div class="label">匹配PDF数</div>
+                        </div>
+                        <div class="summary-card metric-card">
+                            <div class="value">${(overall.precision * 100).toFixed(1)}%</div>
+                            <div class="label">精确率 (Precision)</div>
+                        </div>
+                        <div class="summary-card metric-card">
+                            <div class="value">${(overall.recall * 100).toFixed(1)}%</div>
+                            <div class="label">召回率 (Recall)</div>
+                        </div>
+                        <div class="summary-card metric-card">
+                            <div class="value">${(overall.f1 * 100).toFixed(1)}%</div>
+                            <div class="label">F1分数</div>
+                        </div>
+                        <div class="summary-card hallucination">
+                            <div class="value">${(overall.hallucination_rate * 100).toFixed(1)}%</div>
+                            <div class="label">幻觉率</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <div class="summary-title">📄 各PDF详细报告</div>
+                    <div class="legend">
+                        <div class="legend-item"><span class="legend-color tp"></span> TP - 正确识别</div>
+                        <div class="legend-item"><span class="legend-color fp"></span> FP - 幻觉（多报）</div>
+                        <div class="legend-item"><span class="legend-color fn"></span> FN - 遗漏（少报）</div>
+                    </div>
+                    <div class="pdf-tabs">
+                        ${pdfList.map((pdf, i) => `
+                            <button class="pdf-tab ${i === 0 ? 'active' : ''}" onclick="showPdf('${pdf}')">${pdf}</button>
+                        `).join('')}
+                    </div>
+            `;
+            
+            // 生成每个PDF的详情
+            for (let i = 0; i < pdfList.length; i++) {
+                const pdfName = pdfList[i];
+                const pdfData = pdfReports[pdfName];
+                html += renderPdfSection(pdfName, pdfData, i === 0);
+            }
+            
+            html += `</div>`;
+            
+            document.getElementById('content').innerHTML = html;
+        }
+        
+        function renderPdfSection(pdfName, pdfData, isActive) {
+            const metrics = pdfData.metrics;
+            const commonGenes = pdfData.common_genes || [];
+            const llmOnlyGenes = pdfData.llm_only_genes || [];
+            const annotationOnlyGenes = pdfData.annotation_only_genes || [];
+            const geneResults = pdfData.gene_results || {};
+            
+            let geneCardsHtml = '';
+            for (const [geneName, geneData] of Object.entries(geneResults)) {
+                geneCardsHtml += renderGeneCard(geneName, geneData);
+            }
+            
+            if (!geneCardsHtml) {
+                geneCardsHtml = '<div class="no-data">暂无基因详情</div>';
+            }
+            
+            return `
+                <div class="pdf-section" id="pdf-${pdfName}" style="display: ${isActive ? 'block' : 'none'}">
+                    <div class="pdf-header">
+                        <div class="pdf-title">📑 ${pdfName}</div>
+                        <div class="pdf-metrics">
+                            <span class="pdf-metric precision">精确率: ${(metrics.precision * 100).toFixed(1)}%</span>
+                            <span class="pdf-metric recall">召回率: ${(metrics.recall * 100).toFixed(1)}%</span>
+                            <span class="pdf-metric f1">F1: ${(metrics.f1 * 100).toFixed(1)}%</span>
+                            <span class="pdf-metric hallucination">幻觉率: ${(metrics.hallucination_rate * 100).toFixed(1)}%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gene-comparison">
+                        <div class="gene-box common">
+                            <div class="gene-box-title">✅ 共有基因 (${commonGenes.length})</div>
+                            <div class="gene-box-content">${commonGenes.join(', ') || '无'}</div>
+                        </div>
+                        <div class="gene-box llm-only">
+                            <div class="gene-box-title">⚠️ 仅LLM提取 (${llmOnlyGenes.length})</div>
+                            <div class="gene-box-content">${llmOnlyGenes.join(', ') || '无'}</div>
+                        </div>
+                        <div class="gene-box annotation-only">
+                            <div class="gene-box-title">📝 仅人工标注 (${annotationOnlyGenes.length})</div>
+                            <div class="gene-box-content">${annotationOnlyGenes.join(', ') || '无'}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gene-detail">
+                        <div class="gene-detail-title">🔍 各基因详细评估</div>
+                        <div class="gene-cards">
+                            ${geneCardsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderGeneCard(geneName, geneData) {
+            // 计算该基因的总TP/FP/FN
+            let totalTP = 0, totalFP = 0, totalFN = 0;
+            
+            function sumMetrics(obj) {
+                if (Array.isArray(obj) && obj.length === 3) {
+                    totalTP += obj[0];
+                    totalFP += obj[1];
+                    totalFN += obj[2];
+                } else if (typeof obj === 'object') {
+                    for (const key in obj) {
+                        sumMetrics(obj[key]);
+                    }
+                }
+            }
+            sumMetrics(geneData);
+            
+            const total = totalTP + totalFP + totalFN;
+            const accuracy = total > 0 ? (totalTP / total * 100).toFixed(0) : 0;
+            
+            let scoreClass = 'good';
+            if (accuracy < 60) scoreClass = 'bad';
+            else if (accuracy < 80) scoreClass = 'medium';
+            
+            let fieldsHtml = '';
+            for (const [category, fields] of Object.entries(geneData)) {
+                const categoryName = fieldNames[category] || category;
+                
+                if (Array.isArray(fields) && fields.length === 3) {
+                    // 列表形式的字段
+                    fieldsHtml += `
+                        <div class="field-item">
+                            <span class="field-name">${categoryName}</span>
+                            <div class="field-values">
+                                ${renderBadge('tp', fields[0])}
+                                ${renderBadge('fp', fields[1])}
+                                ${renderBadge('fn', fields[2])}
+                            </div>
+                        </div>
+                    `;
+                } else if (typeof fields === 'object') {
+                    // 对象形式的字段
+                    for (const [field, values] of Object.entries(fields)) {
+                        if (Array.isArray(values) && values.length === 3) {
+                            const fieldName = fieldNames[field] || field;
+                            fieldsHtml += `
+                                <div class="field-item">
+                                    <span class="field-name">${categoryName} - ${fieldName}</span>
+                                    <div class="field-values">
+                                        ${renderBadge('tp', values[0])}
+                                        ${renderBadge('fp', values[1])}
+                                        ${renderBadge('fn', values[2])}
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+                }
+            }
+            
+            return `
+                <div class="gene-card">
+                    <div class="gene-card-header">
+                        <span class="gene-name">${geneName}</span>
+                        <span class="gene-score ${scoreClass}">${accuracy}% 正确</span>
+                    </div>
+                    <div class="field-list">
+                        ${fieldsHtml}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderBadge(type, value) {
+            if (value === 0) return '';
+            const labels = { tp: 'TP', fp: 'FP', fn: 'FN' };
+            return `<span class="field-badge ${type}">${labels[type]}: ${value}</span>`;
+        }
+        
+        function showPdf(pdfName) {
+            // 隐藏所有PDF section
+            document.querySelectorAll('.pdf-section').forEach(el => {
+                el.style.display = 'none';
+            });
+            // 取消所有tab的active状态
+            document.querySelectorAll('.pdf-tab').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // 显示选中的PDF
+            document.getElementById('pdf-' + pdfName).style.display = 'block';
+            // 设置tab为active
+            event.target.classList.add('active');
+        }
+        
+        // 加载报告
+        loadReport();
+    </script>
+</body>
+</html>
