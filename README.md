@@ -70,6 +70,7 @@ python json_to_sql.py
 ## 输出格式
 
 **单篇文献输出（`output/pdf_results/*_result.json`）**
+
 由 `main.py` 生成，每篇PDF对应一个文件，记录该文献中提取到的所有基因信息：
 
 ```json
