@@ -488,18 +488,10 @@
         }
 
         .reference-info {
-            margin-top: 0;
+            margin-top: 15px;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-        }
-
-        .reference-info .reference-item:first-child {
-            flex: unset;
-        }
-
-        .reference-info .reference-item:not(:first-child) {
-            flex: unset;
         }
 
         .reference-item {
@@ -582,6 +574,97 @@
             color: #888;
             font-size: 0.9rem;
         }
+
+        /* 文献详情展开功能样式 */
+        .expand-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #1a5276 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .expand-btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .expand-btn.loading::after {
+            content: '加载中...';
+        }
+
+        .literature-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #e0e0e0;
+            display: none;
+        }
+
+        .literature-details.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .literature-details h4 {
+            color: #1a5276;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .literature-item {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .literature-item .doc-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .literature-item .doc-meta {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .literature-item .detail-section {
+            margin-bottom: 12px;
+        }
+
+        .literature-item .detail-label {
+            font-weight: 600;
+            color: #34495e;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .literature-item .detail-value {
+            color: #555;
+            font-size: 0.9rem;
+            padding-left: 10px;
+        }
+
+        .loading-indicator {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
     </style>
 </head>
 <body>
@@ -651,12 +734,7 @@
                 </div>
                 <div class="filter-item">
                     <label>已知靶向药物 / Known Drugs</label>
-                    <select id="filter-drug">
-                        <option value="">全部药物 / All Drugs</option>
-                        {% for drug in all_drugs %}
-                        <option value="{{ drug }}">{{ drug }}</option>
-                        {% endfor %}
-                    </select>
+                    <input type="text" id="filter-drug" placeholder="例如：索拉非尼...">
                 </div>
                 <div class="filter-item">
                     <label>相关信号通路 / Signaling Pathway</label>
@@ -727,6 +805,12 @@
                 formData.append('files', files[i]);
             }
 
+            // 禁用上传按钮，防止重复提交
+            const uploadBtn = document.querySelector('.upload-btn');
+            const originalBtnText = uploadBtn.textContent;
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = '上传中... / Uploading...';
+
             try {
                 const response = await fetch('/api/upload', {
                     method: 'POST',
@@ -742,9 +826,23 @@
 
                     startRefreshProgress();
 
+                    // 显示处理进度提示
+                    const resultsContainer = document.getElementById('results-container');
+                    resultsContainer.innerHTML = `
+                        <div class="processing">
+                            <div class="spinner"></div>
+                            <p>正在处理文件，请耐心等待...</p>
+                            <p style="font-size: 0.8em; color: #666;">Processing files, please wait...</p>
+                        </div>
+                    `;
+
                     setTimeout(async () => {
                         const processResponse = await fetch('/api/process', {
-                            method: 'POST'
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ uploaded_files: result.uploaded_files })
                         });
                         const processResult = await processResponse.json();
 
@@ -754,8 +852,17 @@
                             document.getElementById('paper-count').textContent = processResult.stats.total_papers;
                             document.getElementById('gene-count').textContent = processResult.stats.total_genes;
                             showToast('处理完成！/ Processing complete!', 'success');
-                            searchGenes();
+                            // 重置过滤条件并显示全部结果
+                            resetFilters();
+                            // 滚动到结果区域
+                            document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
                         } else {
+                            resultsContainer.innerHTML = `
+                                <div class="no-results">
+                                    <div class="icon">❌</div>
+                                    <p>${processResult.message || '处理失败 / Processing failed'}</p>
+                                </div>
+                            `;
                             showToast(processResult.message || '处理失败 / Processing failed', 'error');
                         }
                     }, 1000);
@@ -765,7 +872,17 @@
                 }
             } catch (error) {
                 stopRefreshProgress();
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <div class="icon">❌</div>
+                        <p>上传失败 / Upload failed: ${error.message}</p>
+                    </div>
+                `;
                 showToast('上传失败 / Upload failed: ' + error.message, 'error');
+            } finally {
+                // 恢复上传按钮状态
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = originalBtnText;
             }
         }
 
@@ -836,8 +953,19 @@
         async function refreshData() {
             showToast('正在刷新数据，请耐心等待...', 'info');
             startRefreshProgress();
+            
+            // 显示刷新进度提示
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = `
+                <div class="processing">
+                    <div class="spinner"></div>
+                    <p>正在刷新数据库...</p>
+                    <p style="font-size: 0.8em; color: #666;">Refreshing database...</p>
+                </div>
+            `;
+
             try {
-                const response = await fetch('/api/process', {
+                const response = await fetch('/api/refresh', {
                     method: 'POST'
                 });
                 const result = await response.json();
@@ -848,12 +976,27 @@
                     document.getElementById('paper-count').textContent = result.stats.total_papers;
                     document.getElementById('gene-count').textContent = result.stats.total_genes;
                     showToast('数据刷新完成！/ Data refreshed!', 'success');
-                    searchGenes();
+                    // 重置过滤条件并显示全部结果
+                    resetFilters();
+                    // 滚动到结果区域
+                    document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
                 } else {
+                    resultsContainer.innerHTML = `
+                        <div class="no-results">
+                            <div class="icon">❌</div>
+                            <p>${result.message || '刷新失败 / Refresh failed'}</p>
+                        </div>
+                    `;
                     showToast(result.message || '刷新失败 / Refresh failed', 'error');
                 }
             } catch (error) {
                 stopRefreshProgress();
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <div class="icon">❌</div>
+                        <p>刷新失败 / Refresh failed: ${error.message}</p>
+                    </div>
+                `;
                 showToast('刷新失败 / Refresh failed: ' + error.message, 'error');
             }
         }
@@ -901,36 +1044,50 @@
 
                 // 2. 靶向治疗信息
                 const therapy = geneInfo.targeted_therapy || {};
-                const isTarget = therapy.is_potential_target || geneInfo.is_potential_target || '未提及';
-                let knownDrugs = '未提及';
-                if (Array.isArray(therapy.known_drugs) && therapy.known_drugs.length > 0) {
-                    knownDrugs = therapy.known_drugs.join('，');
-                } else if (therapy.known_drugs && typeof therapy.known_drugs === 'string' && therapy.known_drugs.trim()) {
-                    knownDrugs = therapy.known_drugs;
-                } else if (geneInfo.drugs && typeof geneInfo.drugs === 'string' && geneInfo.drugs.trim()) {
-                    knownDrugs = geneInfo.drugs;
-                }
-                const drugResistance = therapy.drug_resistance || '未提及';
+                // 潜在靶点：未提及也要显示"未提及"
+                const isTarget = therapy.is_potential_target !== undefined && therapy.is_potential_target !== null && therapy.is_potential_target !== '' 
+                                   ? therapy.is_potential_target 
+                                   : (geneInfo.is_potential_target !== undefined && geneInfo.is_potential_target !== null && geneInfo.is_potential_target !== '' 
+                                      ? geneInfo.is_potential_target 
+                                      : '未提及');
+                // 已知药物：如果一个都没有，显示"未提及"
+                const knownDrugs = Array.isArray(therapy.known_drugs) && therapy.known_drugs.length > 0 
+                                   ? therapy.known_drugs.join('，') 
+                                   : (therapy.known_drugs && therapy.known_drugs !== '' && therapy.known_drugs !== '未提及' && !Array.isArray(therapy.known_drugs)
+                                      ? therapy.known_drugs 
+                                      : (geneInfo.drugs && geneInfo.drugs !== '' && geneInfo.drugs !== '未提及'
+                                         ? geneInfo.drugs 
+                                         : '未提及'));
+                // 耐药性：未提及也要显示"未提及"
+                const drugResistance = therapy.drug_resistance !== undefined && therapy.drug_resistance !== null && therapy.drug_resistance !== '' 
+                                        ? therapy.drug_resistance 
+                                        : '未提及';
 
                 // 3. 表达与预后
                 const expProg = geneInfo.expression_and_prognosis || {};
-                const expLevel = expProg.expression_level || '未提及';
-                const osCorr = expProg.prognosis_correlation?.OS || '未提及';
-                const dfsCorr = expProg.prognosis_correlation?.DFS || '未提及';
-                const clinpath = expProg.clinicopathological_correlation || '未提及';
+                const expLevel = expProg.expression_level !== undefined && expProg.expression_level !== null && expProg.expression_level !== '' 
+                                  ? expProg.expression_level 
+                                  : '未提及';
+                const osCorr = expProg.prognosis_correlation && expProg.prognosis_correlation.OS !== undefined && expProg.prognosis_correlation.OS !== null && expProg.prognosis_correlation.OS !== '' 
+                                ? expProg.prognosis_correlation.OS 
+                                : '未提及';
+                const dfsCorr = expProg.prognosis_correlation && expProg.prognosis_correlation.DFS !== undefined && expProg.prognosis_correlation.DFS !== null && expProg.prognosis_correlation.DFS !== '' 
+                                 ? expProg.prognosis_correlation.DFS 
+                                 : '未提及';
+                const clinpath = expProg.clinicopathological_correlation !== undefined && expProg.clinicopathological_correlation !== null && expProg.clinicopathological_correlation !== '' 
+                                  ? expProg.clinicopathological_correlation 
+                                  : '未提及';
 
                 // 4. 突变与表观遗传
                 const mutEpi = geneInfo.mutation_and_epigenetics || {};
-                const mutTypes = Array.isArray(mutEpi.mutation_types) && mutEpi.mutation_types.length > 0
-                                 ? mutEpi.mutation_types.join('，')
-                                 : '未提及';
-                let mutFreq = mutEpi.mutation_frequency || '未提及';
-                if (Array.isArray(mutEpi.mutation_types) && mutEpi.mutation_types.length > 0) {
-                    const mutFreqRaw = geneInfo.mutation_and_epigenetics?.mutation_frequency || '';
-                    if (/\brs\d+\b/i.test(mutFreqRaw)) {
-                        mutFreq = `${mutFreqRaw}，以上SNP位点在人群中的等位基因频率>0.05（HapMap CHB数据），但具体突变频率未给出`;
-                    }
-                }
+                const mutTypes = Array.isArray(mutEpi.mutation_types) && mutEpi.mutation_types.length > 0 
+                                 ? mutEpi.mutation_types.join('，') 
+                                 : (mutEpi.mutation_types && mutEpi.mutation_types !== '' 
+                                    ? mutEpi.mutation_types 
+                                    : '未提及');
+                // 处理突变频率，可能是数组
+                const mutFreqArray = Array.isArray(mutEpi.mutation_frequency) ? mutEpi.mutation_frequency : [];
+                const mutFreq = mutFreqArray.length > 0 ? mutFreqArray.join('，') : '';
 
                 // 5. 机制与模型
                 const mechMod = geneInfo.mechanisms_and_models || {};
@@ -954,10 +1111,101 @@
                     : '<span class="value">未提及</span>';
 
                 // 7. 参考文献信息
-                const ref = geneInfo.reference || {};
-                const refTitle = ref.title || geneInfo.description || geneInfo.source_pdf || '未提及';
-                const refYear = ref.year || geneInfo.year || '未提及';
-                const refLocation = ref.location || ref.pdf_file || geneInfo.source_pdf || '未提及';
+                const refs = geneInfo.references || geneInfo.reference || [];
+                const refsArray = Array.isArray(refs) ? refs : [refs];
+                
+                // 获取所有文献的标题、年份和位置
+                const refTitles = refsArray.map(r => r.title).filter(t => t && t !== '未提及');
+                const refYears = refsArray.map(r => r.year).filter(y => y && y !== '未提及');
+                const refLocations = refsArray.map(r => r.location).filter(l => l && l !== '未提及');
+                const refSources = refsArray.map(r => r.source_pdf).filter(Boolean);
+                
+                const refTitle = refTitles.length > 0 ? refTitles.join('；') : '';
+                const refYear = refYears.length > 0 ? refYears.join('，') : '';
+                const refLocation = refLocations.length > 0 ? refLocations.join('；') : '';
+                const refSource = refSources.length > 0 ? refSources.join('，') : '';
+
+                // 动态构建卡片内容，只显示有内容的字段
+                let expProgHtml = '';
+                if (expLevel || osCorr || dfsCorr || clinpath) {
+                    expProgHtml = `<div class="info-item">
+                        <div class="label">表达与预后 / Expression & Prognosis</div>`;
+                    if (expLevel) expProgHtml += `<div class="value" style="margin-bottom: 4px;"><strong>表达水平:</strong> ${expLevel}</div>`;
+                    if (osCorr || dfsCorr) {
+                        expProgHtml += `<div class="value" style="margin-bottom: 4px;">`;
+                        if (osCorr) expProgHtml += `<strong>OS 相关性:</strong> ${osCorr}`;
+                        if (osCorr && dfsCorr) expProgHtml += ` &nbsp;|&nbsp; `;
+                        if (dfsCorr) expProgHtml += `<strong>DFS 相关性:</strong> ${dfsCorr}`;
+                        expProgHtml += `</div>`;
+                    }
+                    if (clinpath) expProgHtml += `<div class="value" style="font-size: 0.9em; color: #555;"><strong>临床特征:</strong> ${clinpath}</div>`;
+                    expProgHtml += `</div>`;
+                }
+
+                let targetsMutHtml = '';
+                if (isTarget || knownDrugs || drugResistance || mutTypes || mutFreq) {
+                    targetsMutHtml = `<div class="info-item">
+                        <div class="label">靶向治疗与突变 / Targets & Mutations</div>`;
+                    if (isTarget) targetsMutHtml += `<div class="value" style="margin-bottom: 4px;"><strong>潜在靶点:</strong> ${isTarget}</div>`;
+                    if (knownDrugs) targetsMutHtml += `<div class="value drugs" style="margin-bottom: 4px;"><strong>已知药物:</strong> ${knownDrugs}</div>`;
+                    if (drugResistance) targetsMutHtml += `<div class="value" style="margin-bottom: 4px;"><strong>耐药性:</strong> ${drugResistance}</div>`;
+                    if (mutTypes || mutFreq) {
+                        targetsMutHtml += `<div class="value"><strong>突变类型:</strong> ${mutTypes || '未提及'}`;
+                        if (mutFreq) targetsMutHtml += ` (${mutFreq})`;
+                        targetsMutHtml += `</div>`;
+                    }
+                    targetsMutHtml += `</div>`;
+                }
+
+                let mechModHtml = '';
+                if (pathways || subtypes || expModels || evidence) {
+                    mechModHtml = `<div class="info-item">
+                        <div class="label">机制与实验模型 / Mechanisms & Models</div>`;
+                    if (pathways) mechModHtml += `<div class="value" style="margin-bottom: 4px;"><strong>信号通路:</strong> ${pathways}</div>`;
+                    if (subtypes) mechModHtml += `<div class="value" style="margin-bottom: 4px;"><strong>肝癌亚型:</strong> ${subtypes}</div>`;
+                    if (expModels || evidence) {
+                        mechModHtml += `<div class="value"><strong>实验验证:</strong> ${expModels || '未提及'}`;
+                        if (evidence && evidence !== '未提及') mechModHtml += ` (${evidence})`;
+                        mechModHtml += `</div>`;
+                    }
+                    mechModHtml += `</div>`;
+                }
+
+                let funcHtml = '';
+                if (functionsHtml) {
+                    funcHtml = `<div class="info-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="label">核心生物学功能 / Core Functions</div>
+                            ${functionsHtml}
+                        </div>
+                    </div>`;
+                }
+
+                let refHtml = '';
+                if (refTitle || refLocation || refYear || refSource) {
+                    refHtml = `<div class="reference-info">`;
+                    if (refTitle) refHtml += `<div class="reference-item">
+                        <div class="label">来源文献 / Reference Title</div>
+                        <div class="value" style="font-size: 0.9em;">${refTitle}</div>
+                    </div>`;
+                    if (refLocation) refHtml += `<div class="reference-item">
+                        <div class="label">关键证据位置 / Location</div>
+                        <div class="value" style="font-size: 0.9em;">${refLocation}</div>
+                    </div>`;
+                    refHtml += `</div>`;
+                    if (refYear || refSource) {
+                        refHtml += `<div class="reference-info" style="margin-top: 10px;">`;
+                        if (refYear) refHtml += `<div class="reference-item">
+                            <div class="label">发表年份 / Year</div>
+                            <div class="value" style="font-size: 0.9em;">${refYear}</div>
+                        </div>`;
+                        if (refSource) refHtml += `<div class="reference-item">
+                            <div class="label">来源PDF / Source Files</div>
+                            <div class="value" style="font-size: 0.9em;">${refSource}</div>
+                        </div>`;
+                        refHtml += `</div>`;
+                    }
+                }
 
                 // 组装最终的卡片 HTML
                 html += `
@@ -966,61 +1214,164 @@
                             <span class="gene-name">${displayName}</span>
                             <span class="gene-category ${categoryClass}">${category}</span>
                         </div>
-
-                        <div class="gene-body" style="grid-template-columns: 1fr;">
-                            <div class="info-item" style="background: linear-gradient(135deg, #e8f4f8 0%, #d4e6ed 100%); border-left: 4px solid #1a5276;">
-                                <div class="label">核心生物学功能 / Core Functions</div>
-                                ${functionsHtml}
-                            </div>
+                        
+                        <div class="gene-body">
+                            ${expProgHtml}
+                            ${targetsMutHtml}
+                            ${mechModHtml}
+                            ${funcHtml}
                         </div>
-
-                        <div class="gene-body" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; margin-top: 15px;">
-                            <div class="info-item">
-                                <div class="label">突变与表观遗传 / Mutations & Epigenetics</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>突变类型:</strong> ${mutTypes}</div>
-                                <div class="value"><strong>突变频率:</strong> ${mutFreq}</div>
-                            </div>
-
-                            <div class="info-item">
-                                <div class="label">表达与预后 / Expression & Prognosis</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>表达水平:</strong> ${expLevel}</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>OS 相关性:</strong> ${osCorr}</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>DFS 相关性:</strong> ${dfsCorr}</div>
-                                <div class="value" style="font-size: 0.9em; color: #555;"><strong>临床特征:</strong> ${clinpath}</div>
-                            </div>
-
-                            <div class="info-item">
-                                <div class="label">靶向治疗 / Targeted Therapy</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>潜在靶点:</strong> ${isTarget}</div>
-                                <div class="value drugs" style="margin-bottom: 4px;"><strong>已知药物:</strong> ${knownDrugs}</div>
-                                <div class="value"><strong>耐药性:</strong> ${drugResistance}</div>
-                            </div>
-
-                            <div class="info-item">
-                                <div class="label">机制与实验模型 / Mechanisms & Models</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>信号通路:</strong> ${pathways}</div>
-                                <div class="value" style="margin-bottom: 4px;"><strong>肝癌亚型:</strong> ${subtypes}</div>
-                                <div class="value"><strong>实验验证:</strong> ${expModels}</div>
-                            </div>
-
-                            <div class="reference-item" style="grid-column: span 2; padding: 12px 15px; background: #f8f9fa; border-radius: 8px;">
-                                <div class="label">来源文献 / Reference Title</div>
-                                <div class="value" style="font-size: 0.9em;">${refTitle}</div>
-                            </div>
-                            <div class="reference-item" style="padding: 12px 15px; background: #f8f9fa; border-radius: 8px;">
-                                <div class="label">关键证据位置 / Location</div>
-                                <div class="value" style="font-size: 0.9em;">${refLocation}</div>
-                            </div>
-                            <div class="reference-item" style="padding: 12px 15px; background: #f8f9fa; border-radius: 8px;">
-                                <div class="label">发表年份 / Year</div>
-                                <div class="value">${refYear}</div>
-                            </div>
-                        </div>
+                        ${refHtml}
+                        <button class="expand-btn" onclick="toggleLiteratureDetails('${displayName}', this)">
+                            查看文献详情
+                        </button>
+                        <div class="literature-details" id="details-${displayName}"></div>
                     </div>
                 `;
             }
 
             container.innerHTML = html;
+        }
+
+        // 切换文献详情显示
+        async function toggleLiteratureDetails(geneName, btnElement) {
+            const detailsDiv = document.getElementById(`details-${geneName}`);
+            
+            if (detailsDiv.classList.contains('show')) {
+                detailsDiv.classList.remove('show');
+                btnElement.textContent = '查看文献详情';
+                return;
+            }
+            
+            // 显示加载状态
+            detailsDiv.classList.add('show');
+            btnElement.classList.add('loading');
+            btnElement.textContent = '';
+            detailsDiv.innerHTML = '<div class="loading-indicator">正在加载文献详情...</div>';
+            
+            try {
+                const response = await fetch(`/api/gene/${encodeURIComponent(geneName)}/details`);
+                const data = await response.json();
+                
+                if (data.success && data.documents && data.documents.length > 0) {
+                    let html = '<h4>各文献中的详细信息 / Details from Each Literature</h4>';
+                    
+                    data.documents.forEach((doc, index) => {
+                        html += `
+                            <div class="literature-item">
+                                <div class="doc-title">${index + 1}. ${doc.title || '未提供标题'}</div>
+                                <div class="doc-meta">
+                                    ${doc.authors ? '作者: ' + doc.authors.substring(0, 100) + (doc.authors.length > 100 ? '...' : '') : ''}
+                                    ${doc.year ? ' | 年份: ' + doc.year : ''}
+                                </div>
+                                ${doc.gene_data ? formatGeneDataFromJSON(doc.gene_data) : '<div class="detail-value">原始数据不可用</div>'}
+                            </div>
+                        `;
+                    });
+                    
+                    detailsDiv.innerHTML = html;
+                } else {
+                    detailsDiv.innerHTML = '<div class="loading-indicator">未找到相关文献详情</div>';
+                }
+            } catch (error) {
+                console.error('加载文献详情失败:', error);
+                detailsDiv.innerHTML = '<div class="loading-indicator">加载失败，请重试</div>';
+            } finally {
+                btnElement.classList.remove('loading');
+                btnElement.textContent = '收起文献详情';
+            }
+        }
+        
+        // 格式化从JSON读取的基因数据（文献详情中显示，保留"未提及"）
+        function formatGeneDataFromJSON(geneData) {
+            let html = '';
+            
+            // 表达与预后
+            const expProg = geneData.expression_and_prognosis;
+            if (expProg || geneData.expression_level) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">表达与预后 / Expression & Prognosis</div>';
+                const expLevel = expProg ? expProg.expression_level : geneData.expression_level;
+                html += `<div class="detail-value">表达水平: ${expLevel || '未提及'}</div>`;
+                
+                const pc = expProg ? expProg.prognosis_correlation : null;
+                if (pc || geneData.prognosis_correlation) {
+                    const prognosis = pc || geneData.prognosis_correlation;
+                    html += `<div class="detail-value">OS相关性: ${prognosis.OS || '未提及'}</div>`;
+                    html += `<div class="detail-value">DFS相关性: ${prognosis.DFS || '未提及'}</div>`;
+                }
+                
+                const clinpath = expProg ? expProg.clinicopathological_correlation : '';
+                html += `<div class="detail-value">临床病理相关性: ${clinpath || '未提及'}</div>`;
+                html += '</div>';
+            }
+            
+            // 靶向治疗
+            const therapy = geneData.targeted_therapy;
+            if (therapy || geneData.is_potential_target || geneData.drugs) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">靶向治疗 / Targeted Therapy</div>';
+                const isTarget = therapy ? therapy.potential_target || therapy.is_potential_target : geneData.is_potential_target;
+                html += `<div class="detail-value">潜在靶点: ${isTarget || '未提及'}</div>`;
+                
+                const knownDrugs = therapy ? therapy.known_drugs : geneData.drugs;
+                const drugs = Array.isArray(knownDrugs) && knownDrugs.length > 0 ? knownDrugs.join(', ') : (knownDrugs || '未提及');
+                html += `<div class="detail-value">已知药物: ${drugs}</div>`;
+                
+                const drugResistance = therapy ? therapy.drug_resistance : '';
+                html += `<div class="detail-value">耐药性: ${drugResistance || '未提及'}</div>`;
+                html += '</div>';
+            }
+            
+            // 突变与表观遗传
+            const mutEpi = geneData.mutation_and_epigenetics;
+            if (mutEpi) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">突变与表观遗传 / Mutation & Epigenetics</div>';
+                const mutTypes = mutEpi.mutation_types;
+                const types = Array.isArray(mutTypes) && mutTypes.length > 0 ? mutTypes.join(', ') : (mutTypes || '未提及');
+                html += `<div class="detail-value">突变类型: ${types}</div>`;
+                html += `<div class="detail-value">突变频率: ${mutEpi.mutation_frequency || '未提及'}</div>`;
+                html += '</div>';
+            }
+            
+            // 机制与模型
+            const mechMod = geneData.mechanisms_and_models;
+            if (mechMod) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">机制与实验模型 / Mechanisms & Models</div>';
+                if (mechMod.signaling_pathways) {
+                    const pathways = Array.isArray(mechMod.signaling_pathways) ? mechMod.signaling_pathways.join(', ') : mechMod.signaling_pathways;
+                    html += `<div class="detail-value">信号通路: ${pathways}</div>`;
+                }
+                if (mechMod.cancer_subtype) {
+                    const subtypes = Array.isArray(mechMod.cancer_subtype) ? mechMod.cancer_subtype.join(', ') : mechMod.cancer_subtype;
+                    html += `<div class="detail-value">肝癌亚型: ${subtypes}</div>`;
+                }
+                if (mechMod.experimental_model) {
+                    const models = Array.isArray(mechMod.experimental_model) ? mechMod.experimental_model.join(', ') : mechMod.experimental_model;
+                    html += `<div class="detail-value">实验模型: ${models}</div>`;
+                }
+                html += '</div>';
+            }
+            
+            // 生物学功能
+            const bioFunc = geneData.biological_functions || geneData.functions;
+            if (bioFunc) {
+                html += '<div class="detail-section">';
+                html += '<div class="detail-label">生物学功能 / Biological Functions</div>';
+                const funcs = Array.isArray(bioFunc) ? bioFunc : [bioFunc];
+                funcs.forEach(f => {
+                    if (typeof f === 'string') {
+                        html += `<div class="detail-value">• ${f}</div>`;
+                    } else if (f.function_name) {
+                        html += `<div class="detail-value">• ${f.function_name}</div>`;
+                    }
+                });
+                html += '</div>';
+            }
+            
+            return html || '<div class="detail-value">无详细信息</div>';
         }
 
         document.addEventListener('DOMContentLoaded', function() {
