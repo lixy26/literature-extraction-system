@@ -32,7 +32,7 @@ cd evaluation
 python annotation_ui.py
 ```
 
-然后访问 http://localhost:5001
+然后访问 http://127.0.0.1:5001
 
 ### 2. 使用说明
 
@@ -52,13 +52,14 @@ python evaluate.py --output evaluation/evaluation_report.json
 
 ### 4. 查看可视化报告
 
-启动服务后访问：
+启动服务后访问（需重新运行annotation_ui.py）：
 
 ```
-http://localhost:5001/report
+http://127.0.0.1:5001/report
 ```
 
 可视化报告功能：
+
 - **总体摘要**：展示精确率、召回率、F1分数、幻觉率等核心指标
 - **PDF详情切换**：点击不同PDF标签页查看各文献的评估结果
 - **基因对比**：直观展示共有基因、仅LLM提取、仅人工标注的基因列表
@@ -66,14 +67,15 @@ http://localhost:5001/report
 
 ### 评估指标说明
 
-| 指标 | 说明 |
-|------|------|
-| Precision | 精确率：模型预测正确的比例 |
-| Recall | 召回率：模型覆盖的真实信息比例 |
-| F1 Score | 综合指标：2 * P * R / (P + R) |
-| Hallucination Rate | 幻觉率：预测错误的比例 |
+| 指标                 | 说明                       |
+| ------------------ | ------------------------ |
+| Precision          | 精确率：模型预测正确的比例            |
+| Recall             | 召回率：模型覆盖的真实信息比例          |
+| F1 Score           | 综合指标：2 * P * R / (P + R) |
+| Hallucination Rate | 幻觉率：预测错误的比例              |
 
 **TP/FP/FN 含义**：
+
 - **TP (True Positive)**：正确识别 - LLM和人工标注都有且一致
 - **FP (False Positive)**：幻觉 - LLM有但人工标注无，或内容不一致
 - **FN (False Negative)**：遗漏 - 人工标注有但LLM无
