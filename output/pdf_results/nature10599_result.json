@@ -1,66 +1,68 @@
 {
   "pdf_file": "nature10599.pdf",
-  "pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nature10599.pdf",
+  "pdf_path": "e:\\大三下\\生物信息实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\nature10599.pdf",
   "page_count": 5,
   "status": "ok",
   "gene_count": 1,
   "genes": [
     {
-      "gene_name": "NRAS",
+      "gene_name": "Nras",
       "basic_info": {
         "gene_function_category": "原癌基因"
       },
       "expression_and_prognosis": {
-        "expression_level": "高表达",
+        "expression_level": "未提及",
         "prognosis_correlation": {
-          "OS": "负相关",
-          "DFS": "负相关"
+          "OS": "未提及",
+          "DFS": "未提及"
         },
-        "clinicopathological_correlation": "NrasG12V突变诱导肝细胞衰老，其逃逸与肝细胞癌发生直接相关；在免疫缺陷小鼠中NrasG12V表达导致HCC快速发生"
+        "clinicopathological_correlation": "未提及"
       },
       "targeted_therapy": {
-        "is_potential_target": "正在研究",
+        "is_potential_target": "未提及",
         "known_drugs": [],
         "drug_resistance": "未提及"
       },
       "mutation_and_epigenetics": {
         "mutation_types": [
-          "点突变"
+          "点突变",
+          "扩增"
         ],
-        "mutation_frequency": "rs121913234"
+        "mutation_frequency": "未提及"
       },
       "biological_functions": [
         "细胞增殖",
         "凋亡",
-        "侵袭转移"
+        "免疫逃逸"
       ],
       "mechanisms_and_models": {
         "signaling_pathways": [
-          "MAPK"
+          "Ras"
         ],
         "cancer_subtype": [
           "HBV相关",
           "HCV相关"
         ],
         "experimental_model": [
-          "动物模型",
-          "细胞系"
+          "细胞系",
+          "动物模型"
         ],
         "evidence_level": [
+          "临床研究",
           "动物实验",
           "细胞实验"
         ]
       },
       "reference": {
         "title": "Senescence surveillance of pre-malignant hepatocytes limits liver cancer development",
-        "year": 2011,
-        "location": "Fig.1;Fig.2i;Fig.3f",
+        "year": "2011",
+        "location": "Fig.1C-D;p.4;Supplementary Fig.3",
         "pdf_file": "nature10599.pdf"
       },
       "source_pdf": "nature10599.pdf",
-      "source_pdf_path": "d:\\Lxy\\学习\\bio\\生信\\实验\\大作业\\literature_extraction_system\\pdfs\\nature10599.pdf",
-      "extraction_time": "2026-06-02T22:10:18.419422"
+      "source_pdf_path": "e:\\大三下\\生物信息实验\\literature_extraction_system v4.0\\literature_extraction_system\\pdfs\\nature10599.pdf",
+      "extraction_time": "2026-06-06T12:01:03.195585"
     }
   ],
-  "extraction_time": "2026-06-02T22:10:18.419452"
+  "extraction_time": "2026-06-06T12:01:03.195585"
 }
