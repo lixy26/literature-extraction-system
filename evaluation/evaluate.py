@@ -400,13 +400,19 @@ def main():
     print(f"Hallucination Rate: {report['overall_metrics']['hallucination_rate']}")
     
     # 保存报告
-    output_path = Path(args.output)
+    # 1. 获取 evaluate.py 所在的目录 (evaluation文件夹)
+    current_dir = Path(__file__).parent
+    # 2. 获取项目根目录 (literature-extraction-system-main)
+    project_root = current_dir.parent
+    
+    # 3. 将输入的相对路径强制转换为基于项目根目录的绝对路径
+    output_path = project_root / args.output
+    
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
     
     print(f"\n报告已保存到: {output_path.resolve()}")
-
 
 if __name__ == "__main__":
     main()
