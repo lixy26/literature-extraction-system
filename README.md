@@ -50,9 +50,9 @@ pip install pdfplumber requests
 系统分两步运行：
 
 **第一步：逐篇提取**
-    ```
-    python main.py
-    ```
+```
+python main.py
+```
 
 逐篇读取 `pdfs/` 目录中的PDF文献，调用大语言模型提取基因信息，将每篇文献的结果单独保存为 `output/pdf_results/*_result.json`。
 
@@ -118,7 +118,7 @@ python json_to_sql.py
     }
 }
 ```
-# 整合汇总输出（`output/integrated_gene_results.json`）
+**整合汇总输出（`output/integrated_gene_results.json`）**
 
 由 `json_to_sql.py` 生成，将所有单篇结果按基因名称聚合，同一基因在不同文献中的数据合并为一条记录，并附带来源追溯：
 
