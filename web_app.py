@@ -151,7 +151,7 @@ def load_gene_data():
             
             gene_info['targeted_therapy'] = {
                 'is_potential_target': '; '.join(targets) if targets else '未提及',
-                'known_drugs': drugs if drugs else [],
+                'known_drugs': drugs if drugs else ['未提及'],
                 'drug_resistance': '; '.join(resistances) if resistances else '未提及'
             }
             
@@ -221,7 +221,7 @@ def load_gene_data():
                     frequencies.append(freq)
             
             gene_info['mutation_and_epigenetics'] = {
-                'mutation_types': mutation_types if mutation_types else [],
+                'mutation_types': mutation_types if mutation_types else ['未提及'],
                 'mutation_frequency': frequencies if frequencies else []
             }
             
@@ -232,7 +232,7 @@ def load_gene_data():
             ''', (gene_id,))
             
             functions = [row['function_name'] for row in cursor.fetchall()]
-            gene_info['biological_functions'] = functions
+            gene_info['biological_functions'] = functions if functions else ['未提及']
             
             # 获取机制与模型信息
             cursor.execute('''
@@ -264,10 +264,10 @@ def load_gene_data():
                             evidences.add(e.strip())
             
             gene_info['mechanisms_and_models'] = {
-                'signaling_pathways': sorted(list(pathways)) if pathways else [],
-                'cancer_subtype': sorted(list(subtypes)) if subtypes else [],
-                'experimental_model': sorted(list(models)) if models else [],
-                'evidence_level': sorted(list(evidences)) if evidences else []
+                'signaling_pathways': sorted(list(pathways)) if pathways else ['未提及'],
+                'cancer_subtype': sorted(list(subtypes)) if subtypes else ['未提及'],
+                'experimental_model': sorted(list(models)) if models else ['未提及'],
+                'evidence_level': sorted(list(evidences)) if evidences else ['未提及']
             }
             
             # 获取参考文献
@@ -535,31 +535,58 @@ def upload_files():
     if not files or all(f.filename == '' for f in files):
         return jsonify({'success': False, 'message': '没有选择文件'})
     
-    uploaded_count = 0
+    uploaded_files = []
     for file in files:
         if file and file.filename and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             save_path = app.config['UPLOAD_FOLDER'] / filename
             file.save(save_path)
-            uploaded_count += 1
+            uploaded_files.append(str(save_path))
     
-    if uploaded_count == 0:
+    if not uploaded_files:
         return jsonify({'success': False, 'message': '没有有效的PDF文件'})
     
-    return jsonify({'success': True, 'message': f'成功上传 {uploaded_count} 个文件，正在重新处理...'})
+    return jsonify({
+        'success': True, 
+        'message': f'成功上传 {len(uploaded_files)} 个文件',
+        'uploaded_files': uploaded_files
+    })
 
 @app.route('/api/process', methods=['POST'])
 def process_pdfs():
-    # 先运行main.py处理PDF
-    if not run_main_processor():
+    # 获取要处理的文件列表
+    data = request.get_json() if request.is_json else {}
+    uploaded_files = data.get('uploaded_files', [])
+    
+    if not uploaded_files or len(uploaded_files) == 0:
+        # 如果没有上传新文件，直接报错
+        return jsonify({'success': False, 'message': '未上传文件，请先上传PDF文件'})
+    
+    # 只处理新上传的文件
+    from main import process_specific_files
+    if not process_specific_files(uploaded_files):
         return jsonify({'success': False, 'message': '处理PDF失败'})
     
-    # 再运行json_to_sql.py整合到数据库
+    # 运行json_to_sql.py整合到数据库
     if not run_db_integration():
         return jsonify({'success': False, 'message': '整合数据到数据库失败'})
     
     stats = get_stats()
     return jsonify({'success': True, 'message': '处理完成', 'stats': stats})
+
+@app.route('/api/refresh', methods=['POST'])
+def refresh_database():
+    """刷新数据库（只运行json_to_sql.py）"""
+    try:
+        # 只运行json_to_sql.py整合到数据库
+        if not run_db_integration():
+            return jsonify({'success': False, 'message': '整合数据到数据库失败'})
+        
+        stats = get_stats()
+        return jsonify({'success': True, 'message': '数据库刷新完成', 'stats': stats})
+    except Exception as e:
+        logger.error(f"刷新数据库失败: {e}")
+        return jsonify({'success': False, 'message': f'刷新失败: {str(e)}'})
 
 @app.route('/refresh')
 def refresh_page():
