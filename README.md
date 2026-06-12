@@ -47,9 +47,19 @@ pip install pdfplumber requests
 
 ## 使用方法
 
-```bash
-python main.py
-```
+系统分两步运行：
+
+**第一步：逐篇提取**
+
+    ```python main.py```
+
+逐篇读取 `pdfs/` 目录中的PDF文献，调用大语言模型提取基因信息，将每篇文献的结果单独保存为 `output/pdf_results/*_result.json`。
+
+**第二步：整合汇总**
+
+    ```python json_to_sql.py```
+
+读取第一步生成的所有单篇JSON结果，按基因名称聚合来自不同文献的信息，写入SQLite数据库（`output/gene_info.sqlite3`），并导出最终汇总文件 `output/integrated_gene_results.json`。同一基因在多篇文献中的数据会自动合并，来源文献信息一并保留。
 
 ## API密钥获取
 
@@ -57,7 +67,8 @@ python main.py
 
 ## 输出格式
 
-输出的JSON文件包含以下结构：
+# 单篇文献输出（`output/pdf_results/*_result.json`）
+由 `main.py` 生成，每篇PDF对应一个文件，记录该文献中提取到的所有基因信息：
 
 ```json
 {
@@ -105,7 +116,66 @@ python main.py
     }
 }
 ```
+# 整合汇总输出（`output/integrated_gene_results.json`）
 
+由 `json_to_sql.py` 生成，将所有单篇结果按基因名称聚合，同一基因在不同文献中的数据合并为一条记录，并附带来源追溯：
+
+  ```
+  {
+        "metadata": {
+            "total_genes": 25,
+            "export_time": "2026-05-27T14:30:00",
+            "database_path": "output/gene_info.sqlite3"
+        },
+        "genes": {
+            "GENE_NAME": {
+                "gene_name": "TP53",
+                "gene_function_category": "抑癌基因",
+                "sources": [
+                    {"pdf_file": "paper_A.pdf", "pdf_path": "pdfs/paper_A.pdf"},
+                    {"pdf_file": "paper_B.pdf", "pdf_path": "pdfs/paper_B.pdf"}
+                ],
+                "expression_and_prognosis": {
+                    "expression_level": "低表达; 高表达",
+                    "prognosis_correlation": {
+                        "OS": "负相关",
+                        "DFS": "未提及"
+                    },
+                    "clinicopathological_correlation": "与TNM分期相关 (paper_A.pdf)"
+                },
+                "targeted_therapy": {
+                    "is_potential_target": "是",
+                    "known_drugs": "药物A; 药物B",
+                    "drug_resistance": "未提及"
+                },
+                "mutation_and_epigenetics": {
+                    "mutation_types": "点突变; 甲基化",
+                    "mutation_frequency": "32% (paper_A.pdf)"
+                },
+                "biological_functions": [
+                    "细胞增殖 (来源: paper_A.pdf, paper_B.pdf)",
+                    "凋亡 (来源: paper_A.pdf)"
+                ],
+                "mechanisms_and_models": {
+                    "signaling_pathways": ["PI3K/AKT", "Wnt"],
+                    "cancer_subtype": ["HBV相关"],
+                    "experimental_model": ["细胞系", "动物模型"],
+                    "evidence_level": ["临床研究", "细胞实验"]
+                },
+                "references": [
+                    {
+                        "title": "参考文献标题",
+                        "year": "2024",
+                        "location": "Fig.2A, p.6",
+                        "source_pdf": "paper_A.pdf"
+                    }
+                ]
+            }
+        }
+    }
+```
+
+同时生成 SQLite 数据库 `output/gene_info.sqlite3`，包含 `documents`、`genes`、`expression_prognosis`、`targeted_therapy`、`mutation_epigenetics`、`biological_functions`、`mechanisms_and_models`、`gene_references` 共8张表，支持自定义查询与后续分析。
 ## 提取维度说明
 
 ### A. 表达与预后信息
