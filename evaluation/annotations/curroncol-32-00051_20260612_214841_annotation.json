@@ -1,0 +1,56 @@
+{
+  "pdf_file": "curroncol-32-00051.pdf",
+  "pdf_path": "e:\\大三\\生信实验\\选做实验\\literature-extraction-system-main\\literature-extraction-system-main\\pdfs\\curroncol-32-00051.pdf",
+  "gene_count": 1,
+  "genes": [
+    {
+      "gene_name": "TP53",
+      "basic_info": {
+        "gene_function_category": "抑癌基因"
+      },
+      "expression_and_prognosis": {
+        "expression_level": "",
+        "prognosis_correlation": {
+          "OS": "负相关",
+          "DFS": ""
+        },
+        "clinicopathological_correlation": "TP53突变肿瘤更可能是低分化(p=0.011)，基线时存在大血管侵犯(p=0.018)，且更可能被分期为BCLC C期(p=0.007)。"
+      },
+      "targeted_therapy": {
+        "is_potential_target": "正在研究",
+        "known_drugs": [],
+        "drug_resistance": "TP53突变肿瘤可能对基于缺血的治疗（如TAE/TACE）存在耐药性或难治性。"
+      },
+      "mutation_and_epigenetics": {
+        "mutation_types": [],
+        "mutation_frequency": "34.7%"
+      },
+      "mechanisms_and_models": {
+        "signaling_pathways": [
+          "HIF-1α通路"
+        ],
+        "cancer_subtype": [
+          "HCC"
+        ],
+        "experimental_model": [
+          "临床标本"
+        ],
+        "evidence_level": [
+          "临床研究"
+        ]
+      },
+      "biological_functions": [
+        "血管生成",
+        "耐药",
+        "细胞增殖"
+      ],
+      "reference": {
+        "title": "TP53 Mutation Predicts Worse Survival and Earlier Local Progression in Patients with Hepatocellular Carcinoma Treated with Transarterial Embolization",
+        "year": "2025",
+        "location": "Fig.2;Fig.4A;p.6",
+        "pdf_file": "curroncol-32-00051.pdf"
+      },
+      "source_pdf": "curroncol-32-00051.pdf"
+    }
+  ]
+}
